@@ -8,7 +8,7 @@ import { Cart } from "./Pages/Cart/Cart.jsx";
 import { Login } from "./Pages/Login/Login.jsx";
 import { Signup } from "./Pages/Signup/Signup.jsx";
 import { ProductView } from "./Pages/Product View/ProductView.jsx";
-import { RequiresAuth } from "./Component/RequiresAuth";
+import { RequiresAuth } from "./Component/Auth/RequiresAuth.jsx";
 
 function App() {
   return (

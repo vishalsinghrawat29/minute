@@ -5,8 +5,9 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { AuthProivider, AuthContext } from "./Contexts/AuthContext";
+import { ProductProvider, ProductContext } from "./Contexts/ProductContext";
 
-export { AuthContext };
+export { AuthContext, ProductContext };
 
 // Call make Server
 makeServer();
@@ -15,7 +16,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthProivider>
-        <App />
+        <ProductProvider>
+          <App />
+        </ProductProvider>
       </AuthProivider>
     </Router>
   </React.StrictMode>,
