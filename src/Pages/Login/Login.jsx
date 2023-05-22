@@ -6,12 +6,17 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { userLogged, userLogout, authState } = useContext(AuthContext);
+  const { userLogged, userLogout, errorMessage } = useContext(AuthContext);
+
+  const isToken = localStorage.getItem("token");
+  const userDetails = localStorage.getItem("user");
 
   const handleLogin = () => {
     userLogged(userData);
   };
-  console.log(localStorage.getItem("authState"));
+
+  console.log(userDetails);
+
   return (
     <>
       <h1>Login Page</h1>
@@ -27,11 +32,14 @@ const Login = () => {
           setUserData((prev) => ({ ...prev, password: e.target.value }))
         }
       />
-      <button onClick={handleLogin}>Login</button>
-      <button onClick={userLogout}>Logout</button>
-      <p>{authState?.isLogged.toString()}</p>
+      <button onClick={handleLogin} disabled={isToken?.length}>
+        Login
+      </button>
+      <button onClick={userLogout} disabled={!isToken?.length}>
+        Logout
+      </button>
       <p>{localStorage.getItem("token")}</p>
-      <p>{authState.message.length > 0 && authState.message}</p>
+      <p>{errorMessage}</p>
     </>
   );
 };
