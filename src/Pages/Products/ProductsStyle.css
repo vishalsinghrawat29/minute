@@ -1,0 +1,19 @@
+.products-page {
+  position: relative;
+}
+.display-filter {
+  width: 12%;
+  position: fixed;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1;
+  border: 1px solid #b9b9b9;
+}
+.display-product {
+  width: 88%;
+  margin-left: 12%;
+  border: 1px solid green;
+  z-index: 1;
+}

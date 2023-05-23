@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 export const AuthProivider = ({ children }) => {
   const initialAuthState = {
-    user: {},
-    token: "",
+    user: localStorage.getItem("user"),
+    token: localStorage.getItem("token"),
   };
 
   const [authState, authDispatch] = useReducer(AuthReducer, initialAuthState);

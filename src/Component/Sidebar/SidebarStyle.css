@@ -1,0 +1,10 @@
+.filters-container {
+  padding: 0.5rem;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.price-slider {
+  width: 100%;
+}
