@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    id: uuid(),
+    _id: uuid(),
     name: "5 Sports Automatic Watch",
     image:
       "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-5-sports-srpd53k1-large_1.jpg",
@@ -21,10 +21,9 @@ export const products = [
       count: 388,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Casio Analog-Digital Black Dial Men's Watch-GA-2100-1A1DR (G987)",
     image: "https://m.media-amazon.com/images/I/61CUIlQYlqL._UX679_.jpg",
     brand: "Casio",
@@ -37,10 +36,9 @@ export const products = [
       count: 902,
     },
     isBestSeller: true,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "GARMIN Forerunner 945",
     image: "https://m.media-amazon.com/images/I/51Wzel4ZD-L._SX679_.jpg",
     brand: "GARMIN",
@@ -53,10 +51,9 @@ export const products = [
       count: 1138,
     },
     isBestSeller: true,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Suunto Spartan Sport Wrist HR",
     image: "https://m.media-amazon.com/images/I/71e83m82p1L._SL1500_.jpg",
     brand: "Suunto",
@@ -69,10 +66,9 @@ export const products = [
       count: 1274,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Polar Ignite 2",
     image:
       "https://asset.conrad.com/media10/isa/160267/c1/-/en/002490726PI12/image.jpg?x=&y=",
@@ -86,10 +82,9 @@ export const products = [
       count: 316,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Seiko Prospex SRPC91",
     image:
       "https://www.citywatches.in/wp-content/uploads/2020/07/SRPC91K1_1-660x1024.jpg",
@@ -103,10 +98,9 @@ export const products = [
       count: 119,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Citizen Promaster Tough",
     image: "https://m.media-amazon.com/images/I/71tpCYHrFDL._UX569_.jpg",
     brand: "Citizen",
@@ -119,10 +113,9 @@ export const products = [
       count: 119,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Hala Analog-digital Military Full Black Sports Watch",
     image:
       "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTsD7inhVGBzAxPjezLViDHc_6ihrgGre2l2P82eEJ8ZQJqxiLz4o4UvwTy7-NLzkaf_gMcy9pCDLR5_k0Lu7LKnTBzW1Om1GXYJV7o8Jw&usqp=CAY",
@@ -136,10 +129,9 @@ export const products = [
       count: 1356,
     },
     isBestSeller: true,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Awex AW-1002 Green Army Digital Sports Watch",
     image:
       "https://rukminim1.flixcart.com/image/832/832/xif0q/watch/g/g/h/awex-1002-green-stylish-style-worth-men-original-imafx7vunmtqtzz9.jpeg?q=70",
@@ -153,10 +145,9 @@ export const products = [
       count: 756,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "G-Shock ( GST-S110-1ADR ) Analog-Digital Watch - For Men G609",
     image:
       "https://rukminim1.flixcart.com/image/832/832/k4rcmfk0pkrrdj/watch-refurbished/e/b/p/c-g609-casio-original-imaf9fb8r4syeqqa.jpeg?q=70",
@@ -170,10 +161,9 @@ export const products = [
       count: 872,
     },
     isBestSeller: true,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Chronofighter Vintage Noseart (Tiger)",
     image:
       "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/g/r/graham-chronofighter-2cvas-b31a-bral127b-large.jpg",
@@ -187,10 +177,9 @@ export const products = [
       count: 119,
     },
     isBestSeller: true,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Rolex Men's Submariner Date Watch 116610LV",
     image:
       "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSeOBN8dutDq19GBMffKlHH55Pl-42ISIa5Ob1Mkx7zpNYd71t7JogDr4pmLFBDI8zoy9E2xNIwQ6AOnjTNkD5xWVT6_l7AiyBgwL9tpNzHIleVSFBXNR6g",
@@ -204,10 +193,9 @@ export const products = [
       count: 218,
     },
     isBestSeller: true,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Moonwatch Professional Co‑Axial Master Chronometer Chronograph 42 mm",
     image:
       "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSeOBN8dutDq19GBMffKlHH55Pl-42ISIa5Ob1Mkx7zpNYd71t7JogDr4pmLFBDI8zoy9E2xNIwQ6AOnjTNkD5xWVT6_l7AiyBgwL9tpNzHIleVSFBXNR6g",
@@ -221,10 +209,9 @@ export const products = [
       count: 173,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Audemars Piguet Royal Oak Double Balance Wheel Openworked Baguette",
     image:
       "https://sale.platinumtimesco.com/wp-content/uploads/2022/11/Audemars-Piguet-Royal-Oak-Double-Balance-Wheel-Openworked-Baguette.jpeg",
@@ -238,10 +225,9 @@ export const products = [
       count: 192,
     },
     isBestSeller: false,
-    quantity: 0,
   },
   {
-    id: uuid(),
+    _id: uuid(),
     name: "Galaxy Watch4 LTE (44mm)",
     image:
       "https://images.samsung.com/is/image/samsung/p6pim/in/2108/gallery/in-galaxy-watch4-398887-sm-r875fzgainu-481111530?$730_584_PNG$",
@@ -255,6 +241,5 @@ export const products = [
       count: 816,
     },
     isBestSeller: true,
-    quantity: 0,
   },
 ];

@@ -1,6 +1,14 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { ProductReducer } from "../Reducer/ProductReducer.jsx";
 import { FiltersReducer } from "../Reducer/FiltersReducer.jsx";
+import { getCartProducts } from "../utils/cartUtils.jsx";
+import { AuthContext } from "./AuthContext.jsx";
 
 export const ProductContext = createContext();
 
@@ -19,6 +27,9 @@ export const ProductProvider = ({ children }) => {
     ratingFilter: "",
     sortByPriceFilter: "",
   };
+
+  const encodedToken = localStorage?.getItem("token");
+  const { authState } = useContext(AuthContext);
 
   const [productState, productDispatch] = useReducer(
     ProductReducer,
@@ -101,9 +112,26 @@ export const ProductProvider = ({ children }) => {
   const filteredProducts = sortByPriceFilteredProducts;
 
   useEffect(() => {
+    const setCartProuct = async () => {
+      try {
+        const cartResponse = await getCartProducts(encodedToken);
+        const cartJSonResponse = await cartResponse.json();
+        if (cartResponse.status === 200) {
+          productDispatch({ type: "setCart", payload: cartJSonResponse.cart });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    const clearCart = () => {
+      productDispatch({ type: "setCart", payload: [] });
+    };
+
     getProducts();
     getCategories();
-  }, []);
+    !authState?.token && clearCart();
+    authState?.token && setCartProuct();
+  }, [productDispatch, authState?.token, encodedToken]);
 
   return (
     <ProductContext.Provider

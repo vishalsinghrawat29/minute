@@ -43,8 +43,8 @@ const Sidebar = () => {
       </div>
       <div className="filter-box ">
         <h3>Category</h3>
-        {productState?.categories?.map(({ id, categoryName }) => (
-          <label key={id} style={{ display: "block" }}>
+        {productState?.categories?.map(({ _id, categoryName }) => (
+          <label key={_id} style={{ display: "block" }}>
             <input
               type="checkbox"
               name={categoryName}
