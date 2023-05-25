@@ -11,10 +11,13 @@ import { ProductView } from "./Pages/Product View/ProductView.jsx";
 import { RequiresAuth } from "./Component/Auth/RequiresAuth.jsx";
 import { useContext } from "react";
 import { ProductContext } from "./Contexts/ProductContext";
+import { UserDetails } from "./Pages/UserDetails/UserDetails";
 
 function App() {
   const { filtersDispatch, filtersState } = useContext(ProductContext);
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
   return (
     <div className="App">
       <nav style={{ padding: "1rem", height: "64px" }}>
@@ -22,8 +25,10 @@ function App() {
         <NavLink to="/products">Products</NavLink> ||
         <NavLink to="/wishlist">Wishlist</NavLink> ||
         <NavLink to="/cart">Cart</NavLink> ||
-        <NavLink to="/login">Login</NavLink> ||
-        <NavLink to="/signup">Signup</NavLink> ||
+        <NavLink to={token ? "/userDetails" : "/login"}>
+          {token ? JSON.parse(user)?.firstName : "login"}
+        </NavLink>
+        ||
         <NavLink to="/mockman">Mockman</NavLink> ||
         <input
           type="text"
@@ -55,6 +60,14 @@ function App() {
           element={
             <RequiresAuth>
               <Cart />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/userDetails"
+          element={
+            <RequiresAuth>
+              <UserDetails />
             </RequiresAuth>
           }
         />
