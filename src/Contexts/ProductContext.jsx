@@ -9,6 +9,7 @@ import { ProductReducer } from "../Reducer/ProductReducer.jsx";
 import { FiltersReducer } from "../Reducer/FiltersReducer.jsx";
 import { getCartProducts } from "../utils/cartUtils.jsx";
 import { AuthContext } from "./AuthContext.jsx";
+import { getWishlistProduct } from "../utils/wishlistUtils.jsx";
 
 export const ProductContext = createContext();
 
@@ -112,25 +113,34 @@ export const ProductProvider = ({ children }) => {
   const filteredProducts = sortByPriceFilteredProducts;
 
   useEffect(() => {
-    const setCartProuct = async () => {
+    const setCartAndWishlistProduct = async () => {
       try {
         const cartResponse = await getCartProducts(encodedToken);
+        const wishlistResponse = await getWishlistProduct(encodedToken);
         const cartJSonResponse = await cartResponse.json();
+        const wishlistJSONResponse = await wishlistResponse.json();
         if (cartResponse.status === 200) {
-          productDispatch({ type: "setCart", payload: cartJSonResponse.cart });
+          productDispatch({ type: "setCart", payload: cartJSonResponse?.cart });
+        }
+        if (wishlistResponse.status === 200) {
+          productDispatch({
+            type: "setWishlist",
+            payload: wishlistJSONResponse?.wishlist,
+          });
         }
       } catch (err) {
         console.log(err);
       }
     };
-    const clearCart = () => {
+    const clearCartAndWishlist = () => {
       productDispatch({ type: "setCart", payload: [] });
+      productDispatch({ type: "setWishlist", payload: [] });
     };
 
     getProducts();
     getCategories();
-    !authState?.token && clearCart();
-    authState?.token && setCartProuct();
+    !authState?.token && clearCartAndWishlist();
+    authState?.token && setCartAndWishlistProduct();
   }, [productDispatch, authState?.token, encodedToken]);
 
   return (

@@ -1,10 +1,15 @@
 import { useContext } from "react";
 import "./ProductCardStyle.css";
-import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
-import { BiCartAdd } from "react-icons/bi";
+import { AiOutlineHeart, AiFillStar, AiFillHeart } from "react-icons/ai";
+import { BiCartAdd, BiCartDownload } from "react-icons/bi";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { addProductToCart, isProductInCart } from "../../utils/cartUtils.jsx";
 import { useNavigate } from "react-router-dom";
+import {
+  addProductToWishlist,
+  isProductInWishlist,
+  removeProductFromWishlist,
+} from "../../utils/wishlistUtils";
 const ProductCard = ({ productsData }) => {
   const { productState, productDispatch } = useContext(ProductContext);
   console.log("productState", productState);
@@ -23,6 +28,18 @@ const ProductCard = ({ productsData }) => {
       navigate("/login");
     }
   };
+
+  const addToWishlistHandler = (product) => {
+    if (isLogged) {
+      if (isProductInWishlist(productState?.wishlist, product?._id)) {
+        removeProductFromWishlist(productDispatch, product?._id);
+      } else {
+        addProductToWishlist(product, productDispatch);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <>
       <h2 className="heading">Showing Products({productsData.length})</h2>
@@ -34,8 +51,12 @@ const ProductCard = ({ productsData }) => {
               <p style={{ padding: product.isBestSeller && "0.25rem" }}>
                 {product.isBestSeller && "BEST SELLER"}
               </p>
-              <button>
-                <AiOutlineHeart />
+              <button onClick={() => addToWishlistHandler(product)}>
+                {isProductInWishlist(productState?.wishlist, product?._id) ? (
+                  <AiFillHeart />
+                ) : (
+                  <AiOutlineHeart />
+                )}
               </button>
             </div>
             <img src={product.image} alt={product.name} width="250px" />
@@ -58,8 +79,16 @@ const ProductCard = ({ productsData }) => {
                 className="product-cart-btn"
                 onClick={() => addToCartHandler(product)}
               >
-                <BiCartAdd className="cardAddIcon" />
-                Add To Cart
+                {isProductInCart(productState?.cart, product?._id) ? (
+                  <p className="row">
+                    <BiCartDownload className="cardAddIcon" /> Go To Cart
+                  </p>
+                ) : (
+                  <p className="row">
+                    <BiCartAdd className="cardAddIcon" />
+                    Add To Cart
+                  </p>
+                )}
               </button>
             </div>
           </div>
