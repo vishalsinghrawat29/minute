@@ -117,12 +117,12 @@ export const ProductProvider = ({ children }) => {
       try {
         const cartResponse = await getCartProducts(encodedToken);
         const wishlistResponse = await getWishlistProduct(encodedToken);
-        const cartJSonResponse = await cartResponse.json();
-        const wishlistJSONResponse = await wishlistResponse.json();
-        if (cartResponse.status === 200) {
+        if (cartResponse && cartResponse.status === 200) {
+          const cartJSonResponse = await cartResponse.json();
           productDispatch({ type: "setCart", payload: cartJSonResponse?.cart });
         }
-        if (wishlistResponse.status === 200) {
+        if (wishlistResponse && wishlistResponse.status === 200) {
+          const wishlistJSONResponse = await wishlistResponse.json();
           productDispatch({
             type: "setWishlist",
             payload: wishlistJSONResponse?.wishlist,
