@@ -1,6 +1,5 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { AuthReducer } from "../Reducer/AuthReducer.jsx";
-import { getUserAddress } from "../utils/addressUtils.jsx";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -16,7 +15,6 @@ export const AuthProivider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const encodedToken = localStorage.getItem("token");
 
   const userLogged = async (loginData) => {
     if (loginData.email && loginData.password !== "") {
@@ -30,8 +28,16 @@ export const AuthProivider = ({ children }) => {
         if (res.status === 200) {
           localStorage.setItem("user", JSON.stringify(resJson?.foundUser));
           localStorage.setItem("token", resJson?.encodedToken);
+          localStorage.setItem(
+            "address",
+            JSON.stringify(resJson?.foundUser?.address)
+          );
           authDispatch({ type: "setUser", payload: resJson?.foundUser });
           authDispatch({ type: "setToken", payload: resJson?.encodedToken });
+          authDispatch({
+            type: "setAddress",
+            payload: resJson?.foundUser?.address,
+          });
 
           navigate(
             location?.state?.from?.pathname
@@ -84,22 +90,38 @@ export const AuthProivider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    const setUserAddress = async () => {
-      const addressRes = await getUserAddress(encodedToken);
-      const addressResJson = await addressRes?.json();
-      console.log(addressResJson);
-      localStorage.setItem("address", addressResJson);
-      authDispatch({ type: "setAddress", payload: addressResJson });
-    };
+  const getUserAddress = async () => {
+    const encodedToken = localStorage.getItem("token");
+    if (encodedToken?.length !== 0) {
+      try {
+        const res = await fetch("/api/user/address", {
+          headers: {
+            authorization: encodedToken,
+          },
+        });
+        const resJson = await res?.json();
 
-    setUserAddress();
-  }, [encodedToken]);
+        if (res.status === 200) {
+          localStorage.setItem("address", JSON.stringify(resJson?.address));
+          authDispatch({ type: "setAddress", payload: resJson?.address });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      console.log("user Not logged in");
+    }
+  };
+
+  useEffect(() => {
+    getUserAddress();
+  }, []);
 
   return (
     <AuthContext.Provider
       value={{
         authState,
+        authDispatch,
         userLogged,
         userLogout,
         errorMessage,

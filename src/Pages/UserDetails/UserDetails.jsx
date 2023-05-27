@@ -13,7 +13,7 @@ const UserDetails = () => {
         name="tabs"
         id="profile"
         checked={check}
-        onChange={() => setChecked(true)}
+        onChange={() => setChecked(!check)}
       />
       <label htmlFor="profile">Profile</label>
       <input

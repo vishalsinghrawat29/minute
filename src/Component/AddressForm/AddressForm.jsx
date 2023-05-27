@@ -1,4 +1,50 @@
-const AddressForm = ({ setIsAddressForm }) => {
+import { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { addUserAddress, updateUserAddress } from "../../utils/addressUtils";
+
+const AddressForm = ({
+  setIsAddressForm,
+  setAddressForm,
+  addressForm,
+  initialAddressForm,
+}) => {
+  const { authDispatch } = useContext(AuthContext);
+  const encodedToken = localStorage.getItem("token");
+
+  const fillFormValue = (e) => {
+    setAddressForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const fillFormWithDummy = (e) => {
+    e.preventDefault();
+    setAddressForm((form) => ({
+      ...form,
+      name: "Admin",
+      street: "33 , MG Road",
+      city: "Ajmer",
+      state: "Rajasthan",
+      country: "India",
+      zipCode: "305001",
+      mobile: "9493492301",
+    }));
+  };
+
+  const saveAddressHandler = (e) => {
+    e.preventDefault();
+    addressForm._id
+      ? updateUserAddress(
+          addressForm,
+          encodedToken,
+          authDispatch,
+          setIsAddressForm
+        )
+      : addUserAddress(
+          addressForm,
+          encodedToken,
+          authDispatch,
+          setIsAddressForm
+        );
+  };
   return (
     <div
       style={{
@@ -24,7 +70,7 @@ const AddressForm = ({ setIsAddressForm }) => {
       >
         <h3>Add New Address </h3>
         <br />
-        <form>
+        <form onSubmit={(e) => saveAddressHandler(e)}>
           <label htmlFor="name">Name</label>
           <br />
           <input
@@ -33,6 +79,9 @@ const AddressForm = ({ setIsAddressForm }) => {
             id="name"
             placeholder="Enter name"
             style={{ width: "100%" }}
+            value={addressForm.name}
+            onChange={(e) => fillFormValue(e)}
+            required
           />
           <br />
           <br />
@@ -44,6 +93,9 @@ const AddressForm = ({ setIsAddressForm }) => {
             id="street"
             placeholder="Enter House No., Road, Colony"
             style={{ width: "100%" }}
+            value={addressForm.street}
+            onChange={(e) => fillFormValue(e)}
+            required
           />
           <br />
           <br />
@@ -55,6 +107,9 @@ const AddressForm = ({ setIsAddressForm }) => {
             id="city"
             placeholder="Enter city"
             style={{ width: "100%" }}
+            value={addressForm.city}
+            onChange={(e) => fillFormValue(e)}
+            required
           />
           <br />
           <br />
@@ -64,8 +119,11 @@ const AddressForm = ({ setIsAddressForm }) => {
             type="text"
             name="state"
             id="state"
-            placeholder="Enter state"
+            placeholder="Enter State"
             style={{ width: "100%" }}
+            value={addressForm.state}
+            onChange={(e) => fillFormValue(e)}
+            required
           />
           <br />
           <br />
@@ -77,34 +135,53 @@ const AddressForm = ({ setIsAddressForm }) => {
             id="country"
             placeholder="Enter country"
             style={{ width: "100%" }}
+            value={addressForm.country}
+            onChange={(e) => fillFormValue(e)}
+            required
           />
           <br />
           <br />
-          <label htmlFor="pincode">Pincode</label>
+          <label htmlFor="zipCode">ZipCode</label>
           <br />
           <input
             type="number"
-            name="pincode"
-            id="pincode"
-            placeholder="Enter postal code"
+            name="zipCode"
+            id="zipCode"
+            placeholder="Enter ZipCode"
             style={{ width: "100%" }}
+            value={addressForm.zipCode}
+            onChange={(e) => fillFormValue(e)}
+            required
           />
           <br />
           <br />
-          <label htmlFor="mobileNumber">Country</label>
+          <label htmlFor="mobileNumber">Mobile Number</label>
           <br />
           <input
             type="number"
-            name="mobileNumber"
+            name="mobile"
             id="mobileNumber"
-            placeholder="Enter mobileNumber"
+            placeholder="Enter Mobile Number"
             style={{ width: "100%" }}
+            value={addressForm.mobile}
+            onChange={(e) => fillFormValue(e)}
+            required
           />
           <br />
           <br />
           <button type="submit"> Save</button>
-          <button> Fill With Dummy Data</button>
-          <button onClick={() => setIsAddressForm(false)}> Cancel</button>
+          <button onClick={(e) => fillFormWithDummy(e)}>
+            Fill With Dummy Data
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setAddressForm(initialAddressForm);
+              setIsAddressForm(false);
+            }}
+          >
+            Cancel
+          </button>
         </form>
       </div>
     </div>

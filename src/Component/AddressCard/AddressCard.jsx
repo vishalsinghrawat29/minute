@@ -1,5 +1,36 @@
-const AddressCard = ({ address }) => {
-  const { name, street, city, state, country, zipCode, mobile } = address;
+import { useContext } from "react";
+import { removeUserAddress } from "../../utils/addressUtils";
+import { AuthContext } from "../../Contexts/AuthContext";
+
+const AddressCard = ({ address, setAddressForm, setIsAddressForm }) => {
+  const { _id, name, street, city, state, country, zipCode, mobile } = address;
+  const { authDispatch } = useContext(AuthContext);
+  const encodedToken = localStorage.getItem("token");
+
+  const editAddress = (
+    _id,
+    name,
+    street,
+    city,
+    state,
+    country,
+    zipCode,
+    mobile
+  ) => {
+    setIsAddressForm(true);
+    setAddressForm((prev) => ({
+      ...prev,
+      _id,
+      name,
+      street,
+      city,
+      state,
+      country,
+      zipCode,
+      mobile,
+    }));
+  };
+
   return (
     <div
       style={{
@@ -17,6 +48,20 @@ const AddressCard = ({ address }) => {
         PinCode: {zipCode}, {country}
       </p>
       <p>Mobile No. {mobile}</p>
+      <button
+        onClick={() =>
+          editAddress(_id, name, street, city, state, country, zipCode, mobile)
+        }
+      >
+        Edit
+      </button>
+      <button
+        onClick={() =>
+          removeUserAddress(address._id, encodedToken, authDispatch)
+        }
+      >
+        Delete
+      </button>
     </div>
   );
 };
