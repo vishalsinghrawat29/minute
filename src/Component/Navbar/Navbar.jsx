@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import {
-  AiOutlineShopping,
   AiOutlineHeart,
   AiOutlineShoppingCart,
   AiOutlineUser,
@@ -19,7 +18,6 @@ const Navbar = () => {
   const { filtersDispatch, filtersState } = useContext(ProductContext);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
   const [isSearchBarVisible, setSearchBarVisible] = useState(false);
 
   const handleSearch = (e) => {
@@ -65,10 +63,6 @@ const Navbar = () => {
           <BiSearch className="nav-btn-icon" />
         </button>
 
-        <NavLink to="/products" className="nav-link nav-btn">
-          <AiOutlineShopping className="nav-btn-icon" />
-        </NavLink>
-
         <NavLink to="/wishlist" className="nav-link nav-btn">
           <AiOutlineHeart className="nav-btn-icon" />
         </NavLink>
@@ -82,10 +76,7 @@ const Navbar = () => {
           className="nav-link nav-btn"
         >
           {token ? (
-            <>
-              <AiOutlineUser className="nav-btn-icon" />
-              <span>{JSON.parse(user)?.firstName}</span>
-            </>
+            <AiOutlineUser className="nav-btn-icon" />
           ) : (
             <MdOutlineLogin className="nav-btn-icon" />
           )}
