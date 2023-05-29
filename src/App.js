@@ -1,6 +1,6 @@
 import "./App.css";
 import Mockman from "mockman-js";
-import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home/Home.jsx";
 import { Products } from "./Pages/Products/Products.jsx";
 import { Wishlist } from "./Pages/Wishlist/Wishlist.jsx";
@@ -9,16 +9,11 @@ import { Login } from "./Pages/Login/Login.jsx";
 import { Signup } from "./Pages/Signup/Signup.jsx";
 import { ProductView } from "./Pages/Product View/ProductView.jsx";
 import { RequiresAuth } from "./Component/Auth/RequiresAuth.jsx";
-import { useContext } from "react";
-import { ProductContext } from "./Contexts/ProductContext";
+
 import { UserDetails } from "./Pages/UserDetails/UserDetails";
 import { Navbar } from "./Component/Navbar/Navbar";
 
 function App() {
-  const { filtersDispatch, filtersState } = useContext(ProductContext);
-  const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
   return (
     <div className="App">
       <Navbar />
