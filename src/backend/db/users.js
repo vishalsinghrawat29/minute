@@ -30,8 +30,8 @@ export const users = [
   },
   {
     _id: uuid(),
-    firstName: "Vishal Singh",
-    lastName: "Rawat",
+    firstName: "Vishal",
+    lastName: "Singh Rawat",
     email: "vishal@gmail.com",
     password: "vishal1234",
     address: [

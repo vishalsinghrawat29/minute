@@ -12,6 +12,7 @@ import { RequiresAuth } from "./Component/Auth/RequiresAuth.jsx";
 import { useContext } from "react";
 import { ProductContext } from "./Contexts/ProductContext";
 import { UserDetails } from "./Pages/UserDetails/UserDetails";
+import { Navbar } from "./Component/Navbar/Navbar";
 
 function App() {
   const { filtersDispatch, filtersState } = useContext(ProductContext);
@@ -20,29 +21,7 @@ function App() {
   const user = localStorage.getItem("user");
   return (
     <div className="App">
-      <nav style={{ padding: "1rem", height: "64px" }}>
-        <NavLink to="/">Home</NavLink> ||
-        <NavLink to="/products">Products</NavLink> ||
-        <NavLink to="/wishlist">Wishlist</NavLink> ||
-        <NavLink to="/cart">Cart</NavLink> ||
-        <NavLink to={token ? "/userDetails" : "/login"}>
-          {token ? JSON.parse(user)?.firstName : "login"}
-        </NavLink>
-        ||
-        <NavLink to="/mockman">Mockman</NavLink> ||
-        <input
-          type="text"
-          placeholder="search Product"
-          onChange={(e) => {
-            filtersDispatch({
-              type: "setSearch",
-              payload: e.target.value,
-            });
-            filtersState?.search.length !== "" && navigate("/products");
-          }}
-        />
-      </nav>
-
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
