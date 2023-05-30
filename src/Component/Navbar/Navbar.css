@@ -92,7 +92,7 @@ nav button {
   padding: 0.3rem;
   border-radius: 1rem;
   padding-left: 1.75rem;
-  background: transparent;
+  background: var(--background-color);
 }
 .search-container input:focus {
   outline: none;

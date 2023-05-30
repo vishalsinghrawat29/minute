@@ -80,7 +80,7 @@
   padding: 1rem 0.5rem;
 }
 .product-cart-btn {
-  background-color: var(--dark-color);
+  background-color: black;
   color: white;
   display: flex;
   justify-content: center;

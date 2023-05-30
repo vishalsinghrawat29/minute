@@ -25,8 +25,8 @@ const Sidebar = () => {
       <div className="filter-box">
         <h3>Price</h3>
         <div className="row price-range">
-          <p>100</p>
-          <p>10000</p>
+          <p>1000</p>
+          <p>1,000,00</p>
         </div>
         <input
           type="range"
