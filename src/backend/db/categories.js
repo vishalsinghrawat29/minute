@@ -1,4 +1,7 @@
 import { v4 as uuid } from "uuid";
+import SportsWatch from "../../Assets/Category/Sports Watch.png";
+import LuxuryWatch from "../../Assets/Category/Luxury Watch.png";
+import SmartWatch from "../../Assets/Category/Smart Watch.png";
 
 /**
  * Category Database can be added here.
@@ -10,18 +13,21 @@ export const categories = [
     _id: uuid(),
     categoryName: "Sports Watch",
     description:
-      "Performance-driven timepieces for active lifestyles, offering durability and specialized features.",
+      "Active lifestyles, offering durability and specialized features.",
+    image: SportsWatch,
   },
   {
     _id: uuid(),
     categoryName: "Luxury Watch",
     description:
-      "Exquisite timepieces with premium materials and craftsmanship, embodying elegance and status.",
+      "Premium materials and craftsmanship, embodying elegance and status.",
+    image: LuxuryWatch,
   },
   {
     _id: uuid(),
     categoryName: "Smart Watch",
     description:
-      "Innovative wearable tech, combining watch functionality with advanced features for connectivity and convenience.",
+      "Innovative and Advanced features for connectivity and convenience.",
+    image: SmartWatch,
   },
 ];

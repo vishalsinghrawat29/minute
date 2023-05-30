@@ -11,6 +11,7 @@ const Sidebar = () => {
     { label: "Low To High", value: "asc" },
     { label: "Reset", value: "reset" },
   ];
+  console.log(filtersState.categoryFilter);
   return (
     <div className="filters-container">
       <div className="filters-head">
@@ -49,7 +50,7 @@ const Sidebar = () => {
               type="checkbox"
               name={categoryName}
               value={categoryName}
-              checked={filtersState.categoryFilter.includes(categoryName)}
+              checked={filtersState?.categoryFilter?.includes(categoryName)}
               onChange={(e) =>
                 filtersDispatch({
                   type: "setCategoryFilter",

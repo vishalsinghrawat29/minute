@@ -21,6 +21,7 @@ const Navbar = () => {
   const [isSearchBarVisible, setSearchBarVisible] = useState(false);
 
   const handleSearch = (e) => {
+    filtersDispatch({ type: "setClear", payload: "" });
     filtersDispatch({ type: "setSearch", payload: e.target.value });
     if (filtersState?.search.length !== "") {
       navigate("/products");
@@ -50,7 +51,7 @@ const Navbar = () => {
         <CiSearch className="search-icon" />
         <input
           type="text"
-          placeholder="search Product"
+          placeholder="Search for watches..."
           onChange={handleSearch}
         />
         <button className="nav-btn" onClick={toggleSearchBar}>
