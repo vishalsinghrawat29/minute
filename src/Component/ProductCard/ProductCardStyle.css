@@ -3,7 +3,7 @@
   border: 1px solid var(--text-tertiary-color);
   /* background-color: antiquewhite; */
   position: relative;
-  padding: 0.25rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
 }
 .product-card:hover {
@@ -42,7 +42,7 @@
 }
 .product-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   padding: 0.5rem 0;
   object-fit: contain;
   display: block;
