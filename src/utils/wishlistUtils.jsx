@@ -17,7 +17,12 @@ const getWishlistProduct = async (encodedToken) => {
   }
 };
 
-const addProductToWishlist = async (item, productDispatch) => {
+const addProductToWishlist = async (
+  item,
+  productDispatch,
+  setWishlistBtnDisabled
+) => {
+  setWishlistBtnDisabled(true);
   const encodedToken = localStorage.getItem("token");
   try {
     const res = await fetch("/api/user/wishlist", {
@@ -31,10 +36,17 @@ const addProductToWishlist = async (item, productDispatch) => {
     }
   } catch (err) {
     console.log(err);
+  } finally {
+    setWishlistBtnDisabled(false);
   }
 };
 
-const removeProductFromWishlist = async (productDispatch, productId) => {
+const removeProductFromWishlist = async (
+  productDispatch,
+  productId,
+  setWishlistBtnDisabled
+) => {
+  setWishlistBtnDisabled(true);
   const encodedToken = localStorage.getItem("token");
   try {
     const res = await fetch(`/api/user/wishlist/${productId}`, {
@@ -47,6 +59,8 @@ const removeProductFromWishlist = async (productDispatch, productId) => {
     }
   } catch (err) {
     console.log(err);
+  } finally {
+    setWishlistBtnDisabled(false);
   }
 };
 

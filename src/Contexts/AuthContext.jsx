@@ -13,6 +13,7 @@ export const AuthProivider = ({ children }) => {
 
   const [authState, authDispatch] = useReducer(AuthReducer, initialAuthState);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loader, setLoader] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -126,6 +127,8 @@ export const AuthProivider = ({ children }) => {
         userLogout,
         errorMessage,
         userSignup,
+        loader,
+        setLoader,
       }}
     >
       {children}

@@ -12,10 +12,15 @@ import { RequiresAuth } from "./Component/Auth/RequiresAuth.jsx";
 
 import { UserDetails } from "./Pages/UserDetails/UserDetails";
 import { Navbar } from "./Component/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "./Contexts/AuthContext";
+import { Loader } from "./Component/Loader/Loader";
 
 function App() {
+  const { loader } = useContext(AuthContext);
   return (
     <div className="App">
+      {loader && <Loader />}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

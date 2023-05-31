@@ -1,10 +1,114 @@
 .filters-container {
-  padding: 0.5rem;
+  padding: 1rem;
 }
-.row {
+.filters-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+}
+.filters-head p {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  flex-basis: 50%;
+}
+.filters-head button {
+  flex: 1;
+  border: none;
+  color: var(--secondary-color);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1rem;
+}
+
+.filters-head button:last-child {
+  border: 1px solid var(--tertiary-color);
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  padding: 0.25rem 1rem;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.filter-box {
+  margin: 1.3rem 0;
+}
+.filter-box .row {
   display: flex;
   justify-content: space-between;
 }
+.filter-box h3 {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.25rem 0;
+}
+.price-range p {
+  font-size: 0.8rem;
+  color: var(--tertiary-color);
+}
 .price-slider {
   width: 100%;
+}
+.category-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 0.5rem;
+  margin: 0.5rem 0;
+}
+.category-box label {
+  font-size: 0.9rem;
+}
+
+.rating-box {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin: 0.75rem 0;
+}
+.rating-box label {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 0.8;
+}
+.rating-box .star {
+  font-size: 0.9rem;
+  color: rgb(239, 191, 33);
+}
+.price-box {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin: 0.75rem 0;
+}
+.price-box label {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 0.8;
+}
+
+@media (min-width: 768px) {
+  .filters-head {
+    padding: 1rem 0;
+  }
+  .filters-head button:first-of-type {
+    display: none;
+  }
+
+  .filter-box {
+    margin: 1rem 0;
+  }
+  .filter-box h3 {
+    padding: 0.5rem 0;
+  }
 }

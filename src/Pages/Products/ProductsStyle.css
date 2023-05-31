@@ -1,19 +1,119 @@
 .products-page {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.1rem;
   position: relative;
 }
-.display-filter {
-  width: 12%;
+.display-filters {
+  width: 50%;
   position: fixed;
-  top: 64px;
+  top: 3rem;
   bottom: 0;
-  left: 0;
+  left: -50%;
   overflow-y: auto;
-  z-index: 1;
-  border: 1px solid #b9b9b9;
+  z-index: 5;
+  background-color: white;
+  transition: left 0.3s ease-out;
 }
-.display-product {
-  width: 88%;
-  margin-left: 12%;
-  border: 1px solid green;
+
+.filters-visible {
+  left: 3%;
+  transition: left 0.3s ease-out;
+}
+.filters-overlay {
+  position: fixed;
+  top: 3rem;
+  left: 3%;
+  right: 0;
+  bottom: 0;
+  background-color: #00000046;
+  z-index: 3;
+  transition: 0.3s ease-in-out;
+}
+
+.display-products-list {
+  position: absolute;
+  right: 0;
+  width: 100%;
   z-index: 1;
+}
+.products-list-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+}
+.products-list-header {
+  padding: 1rem 0 0 0;
+  color: var(--secondary-color);
+}
+.products-list-header .heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.products-list-header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: var(--tertiary-color);
+  padding: 0.15rem;
+  background-color: var(--background-color);
+  border-radius: 0.25rem;
+}
+.products-list-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.products-list-header .showFilters-btn {
+  font-size: 1.2rem;
+}
+
+.empty-product-list {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  padding: 3rem 0;
+}
+@media (min-width: 768px) {
+  .display-filters {
+    width: 15%;
+    left: 3%;
+  }
+  .filters-visible {
+    left: 3%;
+    transition: none;
+  }
+  .filters-overlay {
+    display: none;
+  }
+  .display-products-list {
+    left: calc(15% + 0.8rem);
+    width: auto;
+  }
+
+  .products-list-container {
+    padding: 2rem;
+  }
+
+  .products-list-header {
+    padding: 2rem 0 0 0;
+  }
+  .products-list-header .heading-container {
+    justify-content: center;
+  }
+  .products-list-header button {
+    display: none;
+  }
+  .products-list-header h2 {
+    font-size: 1.3rem;
+  }
+  .empty-product-list {
+    font-size: 2rem;
+    text-align: center;
+  }
 }

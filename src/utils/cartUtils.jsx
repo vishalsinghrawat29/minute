@@ -2,7 +2,9 @@ const isProductInCart = (cart, id) => {
   return cart?.find((cartProduct) => cartProduct._id === id) ? true : false;
 };
 
-const addProductToCart = async (item, productDispatch) => {
+const addProductToCart = async (item, productDispatch, cartBtnDisabled) => {
+  cartBtnDisabled(true);
+
   const encodedToken = localStorage.getItem("token");
   try {
     const res = await fetch("/api/user/cart", {
@@ -18,6 +20,8 @@ const addProductToCart = async (item, productDispatch) => {
     }
   } catch (err) {
     console.log(err);
+  } finally {
+    cartBtnDisabled(false);
   }
 };
 

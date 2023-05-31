@@ -13,8 +13,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import minuteLogo from "../../Assets/minuteLogoLightMode.png";
 import { ProductContext } from "../../Contexts/ProductContext";
 import "./Navbar.css";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const Navbar = () => {
+  const { setLoader } = useContext(AuthContext);
   const { filtersDispatch, filtersState } = useContext(ProductContext);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
@@ -23,6 +25,8 @@ const Navbar = () => {
   const handleSearch = (e) => {
     filtersDispatch({ type: "setClear", payload: "" });
     filtersDispatch({ type: "setSearch", payload: e.target.value });
+    setLoader(true);
+    setTimeout(() => setLoader(false), 500);
     if (filtersState?.search.length !== "") {
       navigate("/products");
     }

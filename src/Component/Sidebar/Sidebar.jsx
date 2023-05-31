@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import "./SidebarStyle.css";
 import { ProductContext } from "../../Contexts/ProductContext.jsx";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineClose } from "react-icons/ai";
 const Sidebar = () => {
-  const { productState, filtersState, filtersDispatch } =
+  const { productState, filtersState, filtersDispatch, toggleShowFilters } =
     useContext(ProductContext);
   const ratingArr = [4, 3, 2, 1];
   const sortByPrice = [
@@ -11,11 +11,13 @@ const Sidebar = () => {
     { label: "Low To High", value: "asc" },
     { label: "Reset", value: "reset" },
   ];
-  console.log(filtersState.categoryFilter);
   return (
     <div className="filters-container">
       <div className="filters-head">
         <p>Filters</p>
+        <button onClick={toggleShowFilters}>
+          <AiOutlineClose className="filters-close-btn" />
+        </button>
         <button
           onClick={() => filtersDispatch({ type: "setClear", payload: "" })}
         >
@@ -25,8 +27,8 @@ const Sidebar = () => {
       <div className="filter-box">
         <h3>Price</h3>
         <div className="row price-range">
-          <p>1000</p>
-          <p>1,000,00</p>
+          <p>₹ 100</p>
+          <p>₹ 10,000</p>
         </div>
         <input
           type="range"
@@ -45,9 +47,10 @@ const Sidebar = () => {
       <div className="filter-box ">
         <h3>Category</h3>
         {productState?.categories?.map(({ _id, categoryName }) => (
-          <label key={_id} style={{ display: "block" }}>
+          <div key={_id} className="category-box">
             <input
               type="checkbox"
+              id={categoryName}
               name={categoryName}
               value={categoryName}
               checked={filtersState?.categoryFilter?.includes(categoryName)}
@@ -57,17 +60,18 @@ const Sidebar = () => {
                   payload: e.target.value,
                 })
               }
-            />{" "}
-            {categoryName}
-          </label>
+            />
+            <label htmlFor={categoryName}>{categoryName}</label>
+          </div>
         ))}
       </div>
       <div className="filter-box ">
         <h3>Rating</h3>
         {ratingArr?.map((ratingValue) => (
-          <label key={ratingValue} style={{ display: "block" }}>
+          <div key={ratingValue} className="rating-box">
             <input
               type="radio"
+              id={ratingValue}
               value={ratingValue}
               name="ratingFilter"
               checked={Number(filtersState.ratingFilter) === ratingValue}
@@ -78,16 +82,19 @@ const Sidebar = () => {
                 })
               }
             />
-            {ratingValue} <AiFillStar /> and Above
-          </label>
+            <label htmlFor={ratingValue}>
+              {ratingValue} <AiFillStar className="star" /> and Above
+            </label>
+          </div>
         ))}
       </div>
       <div className="filter-box ">
         <h3>Sort by Price</h3>
         {sortByPrice?.map(({ label, value }) => (
-          <label key={value} style={{ display: "block" }}>
+          <div key={value} className="price-box">
             <input
               type="radio"
+              id={label}
               value={value}
               name="sortByPrice"
               checked={filtersState?.sortByPriceFilter === value}
@@ -98,8 +105,8 @@ const Sidebar = () => {
                 })
               }
             />
-            {label}
-          </label>
+            <label htmlFor={label}>{label}</label>
+          </div>
         ))}
       </div>
     </div>

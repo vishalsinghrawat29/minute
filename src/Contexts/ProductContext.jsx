@@ -112,6 +112,11 @@ export const ProductProvider = ({ children }) => {
 
   const filteredProducts = sortByPriceFilteredProducts;
 
+  const [showFilters, setShowFilters] = useState(false);
+  const toggleShowFilters = () => {
+    setShowFilters(!showFilters);
+  };
+
   useEffect(() => {
     const setCartAndWishlistProduct = async () => {
       try {
@@ -152,6 +157,8 @@ export const ProductProvider = ({ children }) => {
         filtersState,
         filtersDispatch,
         filteredProducts,
+        showFilters,
+        toggleShowFilters,
       }}
     >
       {children}
