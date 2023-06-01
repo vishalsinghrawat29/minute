@@ -54,6 +54,20 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
+  // Not used it
+  const getSingleProductDetails = async (productID) => {
+    console.log(productID);
+    try {
+      const res = await fetch(`/api/products/${productID}`);
+      const resJson = await res.json();
+      if (res?.status === 200) {
+        return resJson;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const getCategories = async () => {
     try {
       const res = await fetch("/api/categories");
@@ -159,6 +173,7 @@ export const ProductProvider = ({ children }) => {
         filteredProducts,
         showFilters,
         toggleShowFilters,
+        getSingleProductDetails,
       }}
     >
       {children}

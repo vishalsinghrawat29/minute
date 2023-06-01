@@ -66,7 +66,10 @@ const ProductCard = ({ product }) => {
             )}
           </button>
         </div>
-        <div className="product-card-img">
+        <div
+          className="product-card-img"
+          onClick={() => navigate(`/products/${product.id}`)}
+        >
           <img src={product.image} alt={product.name} width="250px" />
         </div>
         <div className="product-body">
@@ -79,6 +82,7 @@ const ProductCard = ({ product }) => {
             </p>
           </div>
           <h3 className="product-name">{product.name}</h3>
+          {/* <p>{product._id}</p> */}
           <p className="product-price">MRP: ₹{product.price}</p>
           <button
             className={`product-cart-btn pc-center ${
@@ -89,11 +93,11 @@ const ProductCard = ({ product }) => {
           >
             {isProductInCart(productState?.cart, product?._id) ? (
               <p className="pc-center">
-                <BiCartDownload className="cardAddIcon" /> Go To Cart
+                <BiCartDownload className="cartIcon" /> Go To Cart
               </p>
             ) : (
               <p className="pc-center">
-                <BiCartAdd className="cardAddIcon" />
+                <BiCartAdd className="cartIcon" />
                 Add To Cart
               </p>
             )}

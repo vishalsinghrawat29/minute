@@ -5,6 +5,7 @@
   position: relative;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 .product-card:hover {
   border: none;
@@ -94,13 +95,13 @@
   padding: 0.5rem 0;
   border-radius: 0.75rem;
 }
-.cart-disabled {
+.product-cart-btn .cart-disabled {
   background-color: #64748b;
 }
-.cardAddIcon {
+.cartIcon {
   font-size: 1.2rem;
 }
-.product-cart-btn p {
+.product-cart-btn .product-cart-btn p {
   gap: 0.5rem;
 }
 .product-cart-btn:hover {
