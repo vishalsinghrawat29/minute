@@ -40,8 +40,10 @@ const getCartProducts = async (encodedToken) => {
 const handleProductQunatityInCart = async (
   productDispatch,
   productId,
-  type
+  type,
+  setCartBtnDisabled
 ) => {
+  setCartBtnDisabled(true);
   try {
     const encodedToken = localStorage.getItem("token");
     const res = await fetch(`/api/user/cart/${productId}`, {
@@ -56,6 +58,8 @@ const handleProductQunatityInCart = async (
     }
   } catch (err) {
     console.log(err);
+  } finally {
+    setCartBtnDisabled(false);
   }
 };
 const removeProductFromCart = async (productDispatch, productId) => {

@@ -2,12 +2,16 @@ import { useContext, useState } from "react";
 import { ProductContext } from "../../Contexts/ProductContext";
 
 import { AiFillStar, AiFillHeart } from "react-icons/ai";
-import { BiCartAdd, BiCartDownload } from "react-icons/bi";
+import { BiCartAdd } from "react-icons/bi";
 import {
   isProductInWishlist,
   removeProductFromWishlist,
 } from "../../utils/wishlistUtils";
-import { addProductToCart, isProductInCart } from "../../utils/cartUtils";
+import {
+  addProductToCart,
+  isProductInCart,
+  handleProductQunatityInCart,
+} from "../../utils/cartUtils";
 import { useNavigate } from "react-router-dom";
 import "./WishlistCardStyle.css";
 
@@ -37,7 +41,12 @@ const WishlistCard = ({ product }) => {
   const addToCartHandler = (product) => {
     if (isLogged) {
       if (isProductInCart(productState?.cart, product?._id)) {
-        navigate("/cart");
+        handleProductQunatityInCart(
+          productDispatch,
+          product?._id,
+          "increment",
+          setCartBtnDisabled
+        );
       } else {
         addProductToCart(product, productDispatch, setCartBtnDisabled);
       }
@@ -52,6 +61,9 @@ const WishlistCard = ({ product }) => {
           className="wishlist-product-img"
           onClick={() => navigate(`/products/${product.id}`)}
         >
+          {product?.isBestSeller && (
+            <p className="wishlist-product-best-seller">Best Seller</p>
+          )}
           <img src={product?.image} alt={product?.name} />
         </div>
         <div className="wishlist-product-body">
@@ -86,17 +98,10 @@ const WishlistCard = ({ product }) => {
             onClick={() => addToCartHandler(product)}
             disabled={cartBtnDisabled}
           >
-            {isProductInCart(productState?.cart, product?._id) ? (
-              <p className="pc-center">
-                <BiCartDownload className="wishlist-cart-icon" />
-                Go To Cart
-              </p>
-            ) : (
-              <p className="pc-center">
-                <BiCartAdd className="wishlist-cart-icon" />
-                Add To Cart
-              </p>
-            )}
+            <p className="pc-center">
+              <BiCartAdd className="wishlist-cart-icon" />
+              Add To Cart
+            </p>
           </button>
         </div>
       </div>
