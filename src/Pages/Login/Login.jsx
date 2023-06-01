@@ -16,7 +16,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{ maxWidth: "500px", margin: "0 auto" }}>
+    <div style={{ maxWidth: "500px", margin: "5rem auto" }}>
       <h1>Login Page</h1>
       <input
         type="text"

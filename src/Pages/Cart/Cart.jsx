@@ -1,51 +1,36 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../../Contexts/ProductContext";
-import {
-  handleProductQunatityInCart,
-  removeProductFromCart,
-} from "../../utils/cartUtils";
+
+import { CartCard } from "../../Component/CartCard/CartCard";
+import { CartPrice } from "../../Component/CartPrice/CartPrice";
+import { CouponModel } from "../../Component/CouponModel/CouponModel";
 
 const Cart = () => {
-  const { productState, productDispatch } = useContext(ProductContext);
+  const { productState } = useContext(ProductContext);
   const { cart } = productState;
+  const [couponModel, setCouonModel] = useState(false);
   return (
     <>
       {productState?.cart?.length === 0 ? (
-        <h1>Empty Cart</h1>
+        <h1 style={{ marginTop: "4rem" }}>Empty Cart</h1>
       ) : (
-        <div>
+        <div style={{ marginTop: "4rem" }}>
           <h1>Cart({cart?.length})</h1>
-          <div>
-            {cart.map(({ _id, name, qty }) => (
-              <div
-                key={_id}
-                style={{
-                  border: "1px solid black",
-                  padding: "1rem",
-                  margin: "1rem auto",
-                  width: "500px",
-                }}
-              >
-                <p>{name}</p>
-                <p>Qunatity: {qty}</p>
-                <button
-                  onClick={() =>
-                    handleProductQunatityInCart(
-                      productDispatch,
-                      _id,
-                      "increment"
-                    )
-                  }
-                >
-                  Increase Qunatity
-                </button>
-                <button
-                  onClick={() => removeProductFromCart(productDispatch, _id)}
-                >
-                  Remove From cart
-                </button>
-              </div>
-            ))}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <div>
+              {cart.map((product) => (
+                <CartCard key={product?._id} product={product} />
+              ))}
+            </div>
+            <div>
+              <CartPrice setCouonModel={setCouonModel} />
+            </div>
+            {couponModel && <CouponModel setCouonModel={setCouonModel} />}
           </div>
         </div>
       )}

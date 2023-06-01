@@ -6,7 +6,7 @@ const UserDetails = () => {
   const [check, setChecked] = useState(true);
 
   return (
-    <>
+    <div style={{ margin: "5rem auto" }}>
       <h1>User Details</h1>
       <input
         type="radio"
@@ -25,7 +25,7 @@ const UserDetails = () => {
       />
       <label htmlFor="address">Address</label>
       {check ? <UserProfile /> : <UserAddress />}
-    </>
+    </div>
   );
 };
 export { UserDetails };

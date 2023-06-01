@@ -116,9 +116,9 @@
 .single-product-cart-btn {
   border: none;
   font-size: 0.8rem;
-  padding: 0.5rem 2.5rem;
+  padding: 0.75rem 2.5rem;
   border-radius: 2rem;
-  width: 250px;
+  width: 100%;
   background-color: var(--secondary-color);
   margin-top: 1rem;
   color: var(--background-color);
@@ -126,8 +126,8 @@
 .single-product-wishlist-btn {
   border: none;
   font-size: 0.8rem;
-  padding: 0.5rem 2.5rem;
-  width: 250px;
+  padding: 0.75rem 2.5rem;
+  width: 100%;
   border-radius: 2rem;
   background-color: var(--background-color);
   margin-top: 1rem;
@@ -220,6 +220,7 @@
   .single-product-cart-btn {
     font-size: 1rem;
     padding: 1rem 3.5rem;
+    width: 250px;
     margin-top: 0.5rem;
   }
   .single-product-wishlist-btn {

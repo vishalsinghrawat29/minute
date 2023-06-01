@@ -41,6 +41,7 @@ export const ProductProvider = ({ children }) => {
     FiltersReducer,
     filtersInitialState
   );
+  const [couponValue, setCoupenValue] = useState({ couponName: "", value: "" });
 
   const getProducts = async () => {
     try {
@@ -56,7 +57,6 @@ export const ProductProvider = ({ children }) => {
 
   // Not used it
   const getSingleProductDetails = async (productID) => {
-    console.log(productID);
     try {
       const res = await fetch(`/api/products/${productID}`);
       const resJson = await res.json();
@@ -174,6 +174,8 @@ export const ProductProvider = ({ children }) => {
         showFilters,
         toggleShowFilters,
         getSingleProductDetails,
+        couponValue,
+        setCoupenValue,
       }}
     >
       {children}

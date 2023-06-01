@@ -16,7 +16,7 @@ import {
 } from "../../utils/wishlistUtils";
 const ProductView = () => {
   const { productID } = useParams();
-  const { productState, isLoading, productDispatch } =
+  const { productState, productDispatch, isLoading } =
     useContext(ProductContext);
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
@@ -38,6 +38,7 @@ const ProductView = () => {
   //   getSingleProduct();
   // }, [getSingleProductDetails, productID]);
 
+  console.log("url id", productID);
   console.log(singleProduct);
 
   const navigate = useNavigate();
@@ -66,107 +67,114 @@ const ProductView = () => {
       navigate("/login");
     }
   };
-
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <p style={{ marginTop: "4rem" }}>Loading...</p>
       ) : (
-        <div className="single-product-container">
-          <div className="single-product-img">
-            <img src={singleProduct?.image} alt={singleProduct?.name} />
-          </div>
-          <div className="single-product-body">
-            {singleProduct?.isBestSeller ? (
-              <p className="single-product-best-seller">BestSeller</p>
-            ) : (
-              ""
-            )}
-
-            <h1>{singleProduct?.name}</h1>
-            <div className="single-product-price-review">
-              <p className="single-product-price">₹{singleProduct.price}</p>
-              <p>
-                <span className="line"></span>
-              </p>
-              <p className="single-product-review pc-center">
-                <AiFillStar className="starIcon" />
-                {singleProduct.customerReviews.avgValue}(
-                {singleProduct.customerReviews.count} Reviews)
-              </p>
-            </div>
-            <p>
-              Brand: <span>{singleProduct?.brand}</span>
-            </p>
-            <p>
-              Category: <span>{singleProduct?.categoryName}</span>
-            </p>
-            <div className="single-product-description">
-              <p>Description:</p>
-              <p>{singleProduct?.description}</p>
-            </div>
-            <hr className="single-product-body-line" />
-            <div className="single-product-benfits">
-              <p>
-                <AiOutlineTag className="tag-icon" /> Fastest Delivery
-              </p>
-              <p>
-                <AiOutlineTag className="tag-icon" /> Inclusive of All Taxes
-              </p>
-              <p>
-                <AiOutlineTag className="tag-icon" /> Cash On Delivery Available
-              </p>
-            </div>
-
-            <div className="single-product-btn">
-              <button
-                className={`single-product-cart-btn pc-center ${
-                  cartBtnDisabled && "cart-disabled"
-                }`}
-                onClick={() => addToCartHandler(singleProduct)}
-                disabled={cartBtnDisabled}
-              >
-                {isProductInCart(productState?.cart, singleProduct?._id) ? (
-                  <p className="pc-center">
-                    <BiCartDownload className="single-product-btn" /> Go To Cart
-                  </p>
-                ) : (
-                  <p className="pc-center">
-                    <BiCartAdd className="single-product-btn" />
-                    Add To Cart
-                  </p>
+        <>
+          {singleProduct ? (
+            <div className="single-product-container">
+              <div className="single-product-img">
+                <img src={singleProduct?.image} alt={singleProduct?.name} />
+              </div>
+              <div className="single-product-body">
+                {singleProduct?.isBestSeller && (
+                  <p className="single-product-best-seller">BestSeller</p>
                 )}
-              </button>
-              <button
-                onClick={() => addToWishlistHandler(singleProduct)}
-                className={` single-product-wishlist-btn pc-center ${
-                  isProductInWishlist(
-                    productState?.wishlist,
-                    singleProduct?._id
-                  )
-                    ? "wishlist"
-                    : ""
-                } ${wishlistBtnDisabled && "wishlist-disabled"}`}
-                disabled={wishlistBtnDisabled}
-              >
-                {isProductInWishlist(
-                  productState?.wishlist,
-                  singleProduct?._id
-                ) ? (
-                  <p className="pc-center">
-                    <AiFillHeart className="single-product-btn" /> Go To
-                    Wishlist
+
+                <h1>{singleProduct?.name}</h1>
+                <div className="single-product-price-review">
+                  <p className="single-product-price">
+                    ₹{singleProduct?.price}
                   </p>
-                ) : (
-                  <p className="pc-center">
-                    <AiOutlineHeart className="single-product-btn" />
-                    Add To Wishlist
+                  <p>
+                    <span className="line"></span>
                   </p>
-                )}
-              </button>
+                  <p className="single-product-review pc-center">
+                    <AiFillStar className="starIcon" />
+                    {singleProduct?.customerReviews?.avgValue}(
+                    {singleProduct?.customerReviews?.count} Reviews)
+                  </p>
+                </div>
+                <p>
+                  Brand: <span>{singleProduct?.brand}</span>
+                </p>
+                <p>
+                  Category: <span>{singleProduct?.categoryName}</span>
+                </p>
+                <div className="single-product-description">
+                  <p>Description:</p>
+                  <p>{singleProduct?.description}</p>
+                </div>
+                <hr className="single-product-body-line" />
+                <div className="single-product-benfits">
+                  <p>
+                    <AiOutlineTag className="tag-icon" /> Fastest Delivery
+                  </p>
+                  <p>
+                    <AiOutlineTag className="tag-icon" /> Inclusive of All Taxes
+                  </p>
+                  <p>
+                    <AiOutlineTag className="tag-icon" /> Cash On Delivery
+                    Available
+                  </p>
+                </div>
+
+                <div className="single-product-btn">
+                  <button
+                    className={`single-product-cart-btn pc-center ${
+                      cartBtnDisabled && "cart-disabled"
+                    }`}
+                    onClick={() => addToCartHandler(singleProduct)}
+                    disabled={cartBtnDisabled}
+                  >
+                    {isProductInCart(productState?.cart, singleProduct?._id) ? (
+                      <p className="pc-center">
+                        <BiCartDownload className="single-product-btn" /> Go To
+                        Cart
+                      </p>
+                    ) : (
+                      <p className="pc-center">
+                        <BiCartAdd className="single-product-btn" />
+                        Add To Cart
+                      </p>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => addToWishlistHandler(singleProduct)}
+                    className={` single-product-wishlist-btn pc-center ${
+                      isProductInWishlist(
+                        productState?.wishlist,
+                        singleProduct?._id
+                      )
+                        ? "wishlist"
+                        : ""
+                    } ${wishlistBtnDisabled && "wishlist-disabled"}`}
+                    disabled={wishlistBtnDisabled}
+                  >
+                    {isProductInWishlist(
+                      productState?.wishlist,
+                      singleProduct?._id
+                    ) ? (
+                      <p className="pc-center">
+                        <AiFillHeart className="single-product-btn" /> Go To
+                        Wishlist
+                      </p>
+                    ) : (
+                      <p className="pc-center">
+                        <AiOutlineHeart className="single-product-btn" />
+                        Add To Wishlist
+                      </p>
+                    )}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          ) : (
+            <p style={{ marginTop: "3.6rem" }}>Product Undefined</p>
+          )}
+        </>
       )}
     </>
   );

@@ -41,9 +41,9 @@ const handleProductQunatityInCart = async (
   productDispatch,
   productId,
   type,
-  setCartBtnDisabled
+  setBtnDisabled
 ) => {
-  setCartBtnDisabled(true);
+  setBtnDisabled(true);
   try {
     const encodedToken = localStorage.getItem("token");
     const res = await fetch(`/api/user/cart/${productId}`, {
@@ -59,10 +59,15 @@ const handleProductQunatityInCart = async (
   } catch (err) {
     console.log(err);
   } finally {
-    setCartBtnDisabled(false);
+    setBtnDisabled(false);
   }
 };
-const removeProductFromCart = async (productDispatch, productId) => {
+const removeProductFromCart = async (
+  productDispatch,
+  productId,
+  setBtnDisabled
+) => {
+  setBtnDisabled(true);
   try {
     const encodedToken = localStorage.getItem("token");
     const res = await fetch(`/api/user/cart/${productId}`, {
@@ -76,6 +81,8 @@ const removeProductFromCart = async (productDispatch, productId) => {
     }
   } catch (err) {
     console.log(err);
+  } finally {
+    setBtnDisabled(false);
   }
 };
 export {
