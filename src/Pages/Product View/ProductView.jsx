@@ -77,6 +77,12 @@ const ProductView = () => {
             <img src={singleProduct?.image} alt={singleProduct?.name} />
           </div>
           <div className="single-product-body">
+            {singleProduct?.isBestSeller ? (
+              <p className="single-product-best-seller">BestSeller</p>
+            ) : (
+              ""
+            )}
+
             <h1>{singleProduct?.name}</h1>
             <div className="single-product-price-review">
               <p className="single-product-price">₹{singleProduct.price}</p>
