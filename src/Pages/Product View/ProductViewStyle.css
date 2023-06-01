@@ -20,7 +20,7 @@
 .single-product-best-seller {
   font-size: 0.8rem;
   background-color: var(--primary-color);
-  color: var(--background-color);
+  color: white;
   text-transform: uppercase;
   padding: 0.25rem 1rem;
   margin: 1rem 0;
@@ -171,13 +171,7 @@
   }
   .single-product-best-seller {
     font-size: 1rem;
-    background-color: Var(--primary-color);
-    color: var(--background-color);
-    text-transform: uppercase;
     padding: 0.5rem 1.5rem;
-    width: fit-content;
-    font-weight: 400;
-    border-radius: 2.5rem;
     margin: 0.5rem 0;
   }
   .single-product-body h1 {
