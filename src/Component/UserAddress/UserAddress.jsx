@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AddressCard } from "../AddressCard/AddressCard";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { AddressForm } from "../AddressForm/AddressForm";
+import "./UserAddressStyle.css";
 
 const UserAddress = () => {
   const { authState } = useContext(AuthContext);
@@ -19,15 +20,7 @@ const UserAddress = () => {
 
   const addressArr = authState?.address;
   return (
-    <div
-      style={{
-        width: "500px",
-        margin: "0 auto",
-        border: "1px solid black",
-        textAlign: "center",
-      }}
-    >
-      <h1>User Address Page</h1>
+    <div className="user-address-container">
       {addressArr?.length === 0 ? (
         <p>No Address added yet</p>
       ) : (
@@ -40,7 +33,12 @@ const UserAddress = () => {
           />
         ))
       )}
-      <button onClick={() => setIsAddressForm(true)}>Add Address</button>
+      <button
+        className="user-address-add-btn"
+        onClick={() => setIsAddressForm(true)}
+      >
+        Add New Address
+      </button>
       {isAddressForm && (
         <AddressForm
           setIsAddressForm={setIsAddressForm}

@@ -1,0 +1,45 @@
+.user-profile-container {
+  padding: 0.5rem;
+}
+.user-profile-body {
+  margin-top: 0.75rem;
+}
+.user-profile-body > p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #64748b;
+  font-weight: 400;
+  text-align: left;
+  padding: 0.1rem 0;
+}
+.user-profile-body > p > span {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+.user-profile-body button {
+  border: none;
+  background-color: var(--primary-color);
+  padding: 0.5rem 3rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+@media (min-width: 768px) {
+  .user-profile-container {
+    padding: 1rem;
+  }
+  .user-profile-body {
+    margin-top: 1.5rem;
+  }
+  .user-profile-body > p {
+    font-size: 1rem;
+    padding: 0.25rem 0;
+  }
+  .user-profile-body button {
+    padding: 0.75rem 4rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+}

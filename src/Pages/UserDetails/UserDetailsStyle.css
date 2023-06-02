@@ -1,0 +1,67 @@
+.user-details-page {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.1rem;
+  padding: 0.25rem 0;
+  text-align: center;
+}
+.user-details-heading {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+.user-details-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid var(--text-tertiary-color);
+  border-radius: 0.5rem;
+}
+.user-details-tab-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.user-details-tab {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-details-tab > input[type="radio"] {
+  display: none;
+}
+.user-details-tab > input[type="radio"]:checked + label {
+  background-color: var(--secondary-color);
+  color: white;
+}
+.user-details-tab label {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+@media (min-width: 768px) {
+  .user-details-page {
+    margin-top: 3.6rem;
+    padding: 0.5rem 0;
+  }
+  .user-details-container {
+    border-radius: 1rem;
+  }
+  .user-details-tab-container {
+    border-radius: 1rem 1rem 0 0;
+  }
+  .user-details-heading {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  .user-details-tab label {
+    border-radius: 1rem 1rem 0 0;
+  }
+}

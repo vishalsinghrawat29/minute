@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { removeUserAddress } from "../../utils/addressUtils";
 import { AuthContext } from "../../Contexts/AuthContext";
-
+import "./AddressCardStyle.css";
 const AddressCard = ({ address, setAddressForm, setIsAddressForm }) => {
   const { _id, name, street, city, state, country, zipCode, mobile } = address;
   const { authDispatch } = useContext(AuthContext);
@@ -32,17 +32,10 @@ const AddressCard = ({ address, setAddressForm, setIsAddressForm }) => {
   };
 
   return (
-    <div
-      style={{
-        margin: "1rem",
-        border: "1px solid red",
-        padding: "0.25rem",
-        textAlign: "left",
-      }}
-    >
-      <p>{name}</p>
+    <div className="user-address-card-container">
+      <p className="user-address-card-name">{name}</p>
       <p>
-        {street}, {city}, {state}.
+        {street}, {city}, {state}
       </p>
       <p>
         PinCode: {zipCode}, {country}

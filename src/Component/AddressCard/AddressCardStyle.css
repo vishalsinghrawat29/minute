@@ -1,0 +1,53 @@
+.user-address-card-container {
+  text-align: left;
+  padding: 0.75rem;
+  border: 1px dashed var(--text-tertiary-color);
+  border-radius: 0.4rem;
+  margin-top: 0.75rem;
+}
+.user-address-card-container p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 0.1rem 0;
+}
+.user-address-card-name {
+  font-weight: 600;
+}
+.user-address-card-container button {
+  border: 1px solid var(--secondary-color);
+  background-color: transparent;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.25rem 1.5rem;
+  margin-top: 0.25rem;
+  margin-right: 0.75rem;
+  border-radius: 0.4rem;
+}
+.user-address-card-container button:first-of-type {
+  color: var(--tertiary-color);
+  border: 1px solid var(--tertiary-color);
+  background-color: white;
+}
+.user-address-card-container button:last-of-type {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  .user-address-card-container {
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+  }
+  .user-address-card-container p {
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.4rem 0;
+  }
+  .user-address-card-container button {
+    padding: 0.5rem 2.5rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+  }
+}

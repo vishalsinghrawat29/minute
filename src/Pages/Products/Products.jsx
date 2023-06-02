@@ -37,6 +37,7 @@ const Products = () => {
                   Showing All Products({filteredProducts.length})
                 </h2>
               </div>
+              {console.log(filteredProducts)}
               {filteredProducts.length === 0 &&
                 productState.products.length > 0 && (
                   <h1 className="empty-product-list">
