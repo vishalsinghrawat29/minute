@@ -51,7 +51,13 @@ const AddressForm = ({
       <div className="address-form-container">
         <h3 className="address-form-heading">Add New Address </h3>
         <div className="address-form-field-container">
-          <form onSubmit={(e) => saveAddressHandler(e)}>
+          <form
+            onSubmit={(e) => {
+              saveAddressHandler(e);
+              setAddressForm(initialAddressForm);
+              setIsAddressForm(false);
+            }}
+          >
             <div className="address-form-field ">
               <input
                 type="text"
