@@ -1,45 +1,55 @@
-// import { useContext } from "react";
-// import { ProductContext } from "../../Contexts/ProductContext";
-
+import { useContext, useState } from "react";
+import { ProductContext } from "../../Contexts/ProductContext";
+import { AiOutlineClose } from "react-icons/ai";
+import "./CouponModelStyle.css";
 const CoupensData = [
-  { couponName: "TIME100", value: "100" },
-  { couponName: "WATCHSALE", value: "150" },
+  { couponName: "TIME99", value: 99 },
+  { couponName: "WATCHSALE", value: 120 },
 ];
-const CouponModel = ({ setCouonModel }) => {
-  //   const { couponValue, setCoupenValue, productState } =
-  //     useContext(ProductContext);
+const CouponModel = ({ setCouponModel }) => {
+  const { couponValue, setCoupenValue } = useContext(ProductContext);
+  const [couponInput, setCoupenInput] = useState(couponValue);
 
   return (
-    <div
-      style={{
-        background: " #342e2ebf",
-        position: "fixed",
-        top: "3.6rem",
-        left: "0",
-        right: "0",
-        bottom: "0",
-        zIndex: "10",
-      }}
-    >
-      <div
-        style={{
-          padding: "1rem 2rem 3rem 2rem",
-          backgroundColor: "white",
-          textAlign: "center",
-          width: "400px",
-          height: "auto",
-          margin: "10rem auto",
-          borderRadius: "10px",
-        }}
-      >
-        <div>
+    <div className="coupon-model-wrapper">
+      <div className="coupon-model-container">
+        <div className="coupon-model-head ">
           <h3>Apply Coupon</h3>
-          <button onClick={() => setCouonModel(false)}>Close</button>
+          <button onClick={() => setCouponModel(false)}>
+            <AiOutlineClose className="coupon-model-close" />
+          </button>
         </div>
-        <div>
+        <div className="coupon-model-body">
           {CoupensData.map(({ couponName, value }) => (
-            <div key={couponName}></div>
+            <div key={couponName} className="coupon-box">
+              <input
+                type="radio"
+                name="coupon"
+                id={couponName}
+                onChange={() =>
+                  setCoupenInput({
+                    ...couponInput,
+                    couponName: couponName,
+                    value: value,
+                  })
+                }
+                checked={value === couponInput.value}
+              />
+              <label htmlFor={couponName}>
+                {couponName}: ₹ {value} OFF
+              </label>
+            </div>
           ))}
+        </div>
+        <div className="coupon-submit-btn">
+          <button
+            onClick={() => {
+              setCouponModel(false);
+              setCoupenValue(couponInput);
+            }}
+          >
+            Apply Coupon
+          </button>
         </div>
       </div>
     </div>

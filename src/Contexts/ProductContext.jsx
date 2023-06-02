@@ -41,7 +41,7 @@ export const ProductProvider = ({ children }) => {
     FiltersReducer,
     filtersInitialState
   );
-  const [couponValue, setCoupenValue] = useState({ couponName: "", value: "" });
+  const [couponValue, setCoupenValue] = useState({ couponName: "", value: 0 });
 
   const getProducts = async () => {
     try {
