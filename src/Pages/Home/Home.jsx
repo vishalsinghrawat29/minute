@@ -74,8 +74,8 @@ const Home = () => {
           <div className="footer-policy">
             <span>Terms & Condition</span>
             <span>Shipping Policy</span>
-            <span>Cancellation Policy Privacy</span>
-            <span>Policy</span>
+            <span>Cancellation Policy</span>
+            <span>Privacy Policy</span>
           </div>
           <p className="footer-creator">
             Developed by{" "}
