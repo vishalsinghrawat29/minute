@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
 import "./ProductViewStyle.css";
@@ -16,30 +16,23 @@ import {
 } from "../../utils/wishlistUtils";
 const ProductView = () => {
   const { productID } = useParams();
-  const { productState, productDispatch, isLoading } =
+  const { productState, productDispatch, isLoading, getSingleProductDetails } =
     useContext(ProductContext);
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
-  // const [singleProduct, setSingleProduct] = useState({});
+  const [singleProduct, setSingleProduct] = useState({});
 
-  const singleProduct = productState.products?.find((product) => {
-    return product.id === productID;
-  });
-
-  // useEffect(() => {
-  //   const getSingleProduct = async () => {
-  //     try {
-  //       const res = await getSingleProductDetails(productID);
-  //       setSingleProduct(res?.product);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getSingleProduct();
-  // }, [getSingleProductDetails, productID]);
-
-  console.log("url id", productID);
-  console.log(singleProduct);
+  useEffect(() => {
+    const getSingleProduct = async () => {
+      try {
+        const res = await getSingleProductDetails(productID);
+        setSingleProduct(res?.product);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getSingleProduct();
+  }, [getSingleProductDetails, productID]);
 
   const navigate = useNavigate();
   const isLogged = localStorage.getItem("token")?.length > 0;

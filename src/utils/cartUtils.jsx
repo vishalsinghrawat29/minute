@@ -4,7 +4,6 @@ const isProductInCart = (cart, id) => {
 
 const addProductToCart = async (item, productDispatch, cartBtnDisabled) => {
   cartBtnDisabled(true);
-
   const encodedToken = localStorage.getItem("token");
   try {
     const res = await fetch("/api/user/cart", {
@@ -13,8 +12,6 @@ const addProductToCart = async (item, productDispatch, cartBtnDisabled) => {
       body: JSON.stringify({ product: item }),
     });
     const resJson = await res.json();
-    console.log("add to cart", res.status);
-    console.log("add to cart", resJson);
     if (res.status === 201) {
       productDispatch({ type: "setCart", payload: resJson?.cart });
     }
@@ -52,7 +49,6 @@ const handleProductQunatityInCart = async (
       body: JSON.stringify({ action: { type } }),
     });
     const resJson = await res.json();
-    console.log(resJson);
     if (res.status === 200) {
       productDispatch({ type: "setCart", payload: resJson?.cart });
     }
@@ -75,7 +71,6 @@ const removeProductFromCart = async (
       headers: { authorization: encodedToken },
     });
     const resJson = await res.json();
-    console.log(resJson);
     if (res.status === 200) {
       productDispatch({ type: "setCart", payload: resJson?.cart });
     }

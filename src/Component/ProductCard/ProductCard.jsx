@@ -68,7 +68,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div
           className="product-card-img"
-          onClick={() => navigate(`/products/${product.id}`)}
+          onClick={() => navigate(`/products/${product._id}`)}
         >
           <img src={product.image} alt={product.name} width="250px" />
         </div>

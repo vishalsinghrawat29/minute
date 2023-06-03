@@ -55,7 +55,6 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
-  // Not used it
   const getSingleProductDetails = async (productID) => {
     try {
       const res = await fetch(`/api/products/${productID}`);

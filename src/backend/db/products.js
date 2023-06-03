@@ -1,5 +1,3 @@
-import { v4 as uuid } from "uuid";
-
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
@@ -7,7 +5,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: "98441714-f176-46e5-81e6-623f18aef3f9",
     name: "Shocknshop Digital Sports - 315RED, Multi Functional Black Dial Watch for Mens Boys",
     image:
       "https://m.media-amazon.com/images/I/61fyBGuO18L._AC_UL600_FMwebp_QL65_.jpg",
@@ -23,7 +21,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "ccd0bc46-96f8-40d8-9043-f86f833fde42",
     name: "V2A Men's Digital 5ATM Waterproof Sports Watch with Backlight Alarm Stopwatch (Green)",
     image:
       "https://m.media-amazon.com/images/I/61BCDdRbSjL._AC_UL600_FMwebp_QL65_.jpg",
@@ -39,7 +37,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "fea03681-bd8e-4061-8e88-e246cbe5cc07",
     name: "ASGARD Multi Functional Sports Digital Dial Men's Watch",
     image:
       "https://m.media-amazon.com/images/I/71Wm1336qIL._AC_UL600_FMwebp_QL65_.jpg",
@@ -55,7 +53,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "09976b54-a68c-406a-b106-283e2e8bfa33",
     name: "SKMEI Men's Digital Sports Watch 50m Waterproof LED Military Multifunction Smart Watch Stopwatch Countdown Auto Date Alarm",
     image:
       "https://m.media-amazon.com/images/I/61eac98fJRL._AC_UL600_FMwebp_QL65_.jpg",
@@ -71,7 +69,7 @@ export const products = [
     isBestSeller: true,
   },
   {
-    _id: uuid(),
+    _id: "93f2ef29-c1d7-45fc-8ca0-ebb1d1a63218",
     name: "V2A Chronograph Analogue and Digital Sports Watch for Men",
     image:
       "https://m.media-amazon.com/images/I/815PjZsaUHL._AC_UL600_FMwebp_QL65_.jpg",
@@ -87,7 +85,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "456fd9dd-4825-40cc-882d-ad72e994a228",
     name: "HOK Digital Sport Watch Waterproof for Men with Stopwatch Alarm LED Back Light",
     image:
       "https://m.media-amazon.com/images/I/51D11ndcZ4L._AC_UL600_FMwebp_QL65_.jpg",
@@ -103,7 +101,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "ea0cec2d-2378-4ba5-8139-bd062aab09ca",
     name: "CakCity Sports Watch Men with Large Face 50M Waterproof Watch for Men Digital Watch Outdoor Sports Watches for Men Unisex,Black",
     image:
       "https://m.media-amazon.com/images/I/61pP6Ctoy2L._AC_UL600_FMwebp_QL65_.jpg",
@@ -119,7 +117,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "06eeb989-433f-490b-8143-ea82ca93db95",
     name: "V2A Military Green Camouflage Analog Digital Sports Wrist Watch for Men",
     image:
       "https://m.media-amazon.com/images/I/712dMiar5BL._AC_UL600_FMwebp_QL65_.jpg",
@@ -135,7 +133,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "b24906dd-77a3-4130-995a-f3d08a041a1f",
     name: "Shocknshop Digital Sports -W320, Multi Functional Black Dial Watch for Mens Boys ",
     image:
       "https://m.media-amazon.com/images/I/71uAU9YYMsL._AC_UL600_FMwebp_QL65_.jpg",
@@ -151,7 +149,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "c0e75118-c938-4f60-b975-2a1af966d7d9",
     name: "SKMEI Men's Digital Sports Watch, LED Square Large Face Analog Quartz Wrist Watch with Multi-Time Zone Waterproof Stopwatch",
     image:
       "https://m.media-amazon.com/images/I/6149-JlZjoL._AC_UL600_FMwebp_QL65_.jpg",
@@ -168,7 +166,7 @@ export const products = [
   },
 
   {
-    _id: uuid(),
+    _id: "da880387-1f1d-4ed6-86a7-12e488b520df",
     name: "BENYAR Luxury Business Casual Party-Wear Silicone Chronograph Date Display Watch for Men",
     image:
       "https://m.media-amazon.com/images/I/61FdLnjsLRS._AC_UL600_FMwebp_QL65_.jpg",
@@ -184,7 +182,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "39c5970a-af52-4a56-ae56-71cdf65b522d",
     name: "Carlson Raulen Mens Chronograph Waterproof Luxury Fashion Military Quartz Sports Analog Wristwatch",
     image:
       "https://m.media-amazon.com/images/I/51RIP4Vi2yL._AC_UL600_FMwebp_QL65_.jpg",
@@ -200,7 +198,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "6f2c7ecb-863a-4def-bdea-6057e3b92973",
     name: "PINTIME Luxury Mens/Womens Unisex Diamond Analog ling Iced-Out Watch Oblong Wristwatch Crystal Quartz Metal Watch",
     image:
       "https://m.media-amazon.com/images/I/81WZG4pD6jL._AC_UL600_FMwebp_QL65_.jpg",
@@ -216,7 +214,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "fc8124d6-e324-462d-900f-9454a5809188",
     name: "NAVIFORCE Digital Watch Men Luxury Stainless Steel Analog Quartz Waterproof Watches Fashion Business Chronograph Military Multifunctional Wristwatch",
     image:
       "https://m.media-amazon.com/images/I/61K8XqoOuiL._AC_UL600_FMwebp_QL65_.jpg",
@@ -232,7 +230,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "407bb387-d56f-4ed3-8f96-c7ca0d8dbde9",
     name: "OLEVS Chronograph Luxury Watch for Men (Green Dial)",
     image:
       "https://m.media-amazon.com/images/I/61z+HSKmQpL._AC_UL600_FMwebp_QL65_.jpg",
@@ -248,7 +246,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "c765ac0c-b49e-472c-8926-acd702eed4a0",
     name: "SWADESI STUFF Multi Dial Chronograph Luxury Quartz Analog Watch for Men",
     image:
       "https://m.media-amazon.com/images/I/81QpaxxZlLL._AC_UL600_FMwebp_QL65_.jpg",
@@ -264,7 +262,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "5d905399-b3f5-4f3b-9d77-0d2d545454e6",
     name: "Fastrack Analog Multicolor Dial Men's Casual Watch",
     image:
       "https://m.media-amazon.com/images/I/71kvcoHhr4L._AC_UL600_FMwebp_QL65_.jpg",
@@ -280,7 +278,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "96beead5-371b-4642-aaaf-bcc99187c123",
     name: "BENYAR Luxury Business Casual Party-Wear Silicone Chronograph Date Display Watch for Men",
     image:
       "https://m.media-amazon.com/images/I/61l376IZHNS._AC_UL600_FMwebp_QL65_.jpg",
@@ -296,7 +294,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "5fcb8cfd-2d0b-4174-9723-a5dafca32b76",
     name: "Carlson Raulen Men Women Waterproof Luxury Fashion Military Quartz Sports Analog Wristwatch (Silver)",
     image:
       "https://m.media-amazon.com/images/I/61l376IZHNS._AC_UL600_FMwebp_QL65_.jpg",
@@ -312,7 +310,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "da544dca-4824-40da-91e0-b414ae35357d",
     name: "FORSINING Square Luxury Retro Mechanical Watch for Men, Gorgeous Hollow Skeleton Self-Wind Carved Automatic Watch",
     image:
       "https://m.media-amazon.com/images/I/912b-CMCfLL._AC_UL600_FMwebp_QL65_.jpg",
@@ -328,7 +326,7 @@ export const products = [
     isBestSeller: true,
   },
   {
-    _id: uuid(),
+    _id: "d2c50119-6073-4024-bacf-43d6a87d49fd",
     name: "Noise Newly Launched Quad Call 1.81 Display, Bluetooth Calling Smart Watch, AI Voice Assistance, 160+Hrs Battery Life, Metallic Build, in-Built Games, 100 Sports Modes, 100+ Watch Faces (Rose Pink)",
     image:
       "https://m.media-amazon.com/images/I/61khLNWFnHL._AC_UL600_FMwebp_QL65_.jpg",
@@ -344,7 +342,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "2e21db44-e753-4451-b7e0-23b7b8ba8dd5",
     name: "beatXP Marv Raze Advanced Bluetooth Calling Smartwatch with 1.96 HD Display, 60 Hz Fast Refresh Rate, 24/7 Health Tracking with 100+ Sports Mode, (Upto 7 Days Battery)",
     image:
       "https://m.media-amazon.com/images/I/71H-dH3u4jL._AC_UL600_FMwebp_QL65_.jpg",
@@ -360,7 +358,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "980c3c72-ad7e-44bc-97e9-fdd2f1699e46",
     name: "Fire-Boltt Invincible Plus 1.43 AMOLED Display Smartwatch with Bluetooth Calling, TWS Connection, 300+ Sports Modes, 110 in-Built Watch Faces, 4GB Storage & AI Voice Assistant (Rose Gold)",
     image:
       "https://m.media-amazon.com/images/I/61WMBCxsjJL._AC_UL600_FMwebp_QL65_.jpg",
@@ -376,7 +374,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "fabf23c1-f00e-4d16-b848-abfccd7e2d81",
     name: "Hammer Pulse X 1.83 Display Smart Watch with Bluetooth Calling, Voice Assistant & 60+ Sports Modes, SpO2, Heart Rate Tracking (Black)",
     image:
       "https://m.media-amazon.com/images/I/61kaqYoix4L._AC_UL600_FMwebp_QL65_.jpg",
@@ -392,7 +390,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "33fed3ff-c1d5-4fe4-8b4b-1fa90762f64d",
     name: "Fastrack Reflex Play + BT Calling 1.3 AMOLED Display Smartwatch with AOD Premium Metallic Body AI Voice Assistant in-Built Games BP Monitor 24x7 HRM SpO2 Upto 7 Day Battery IP68 (Black)",
     image:
       "https://m.media-amazon.com/images/I/61sJzENDv2L._AC_UL600_FMwebp_QL65_.jpg",
@@ -408,7 +406,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "29d6e65b-a072-4da3-b02e-14f1121e690c",
     name: "Noise ColorFit Pro 4 Alpha 1.78 AMOLED Display, Bluetooth Calling Smart Watch, Functional Crown, Metallic Build, Intelligent Gesture Control, Instacharge (Silver Grey)",
     image:
       "https://m.media-amazon.com/images/I/61h+le2DUxL._AC_UL600_QL65_.jpg",
@@ -424,7 +422,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "7884ce2f-4fc9-4064-8add-32be257526c3",
     name: "boAt Xtend Smartwatch with Alexa Built-in, 1.69” HD Display, Multiple Watch Faces, Stress Monitor, Heart & SpO2 Monitoring, 14 Sports Modes, Sleep Monitor, 5 ATM & 7 Days Battery(Charcoal Black)",
     image:
       "https://m.media-amazon.com/images/I/617ysOitciL._AC_UL600_FMwebp_QL65_.jpg",
@@ -440,7 +438,7 @@ export const products = [
     isBestSeller: true,
   },
   {
-    _id: uuid(),
+    _id: "47480797-0b8b-4f41-b241-e28889a32518",
     name: "beatXP Marv Neo 1.85'' Display, Bluetooth Calling Smart Watch, Smart AI Voice Assistant, 100+ Sports Modes, Heart & SpO2 Monitoring, IP68, Fast Charging (Electric Black)",
     image:
       "https://m.media-amazon.com/images/I/61H-JDPo9uL._AC_UL600_QL65_.jpg",
@@ -456,7 +454,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "5287f2fe-992d-4790-82ef-fd38a75669d9",
     name: "Fastrack Reflex Play 1.3 AMOLED Display Smart Watch with AOD Premium Metallic Body Upto 7 Day Battery, IP68",
     image:
       "https://m.media-amazon.com/images/I/71CsWSTI3pL._AC_UL600_QL65_.jpg",
@@ -472,7 +470,7 @@ export const products = [
     isBestSeller: false,
   },
   {
-    _id: uuid(),
+    _id: "d05d603f-c58d-4405-ad5a-5ebd0b497503",
     name: "PTron Force X10e Smartwatch with 1.7 Full Touch Color Display, 24/7 Heart Rate, SpO2, Multiple Watch Faces, 10-12 Days Runtime, Sleep/Health/Fitness Trackers & IP68 Waterproof (Pink), Free Size",
     image:
       "https://m.media-amazon.com/images/I/61+hMXLjWVL._AC_UL600_QL65_.jpg",

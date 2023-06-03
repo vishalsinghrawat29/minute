@@ -14,7 +14,7 @@ const Wishlist = () => {
     <>
       {wishlist?.length === 0 ? (
         <div className="empty-wishlist">
-          <h1>Your Wishlist is Empty!</h1>
+          <h1>Your Wishlist is Empty!🙁</h1>
           <p>Start exploring Watches and add your favourites to Wishlist.</p>
           <button onClick={() => navigate("/products")}>Explore Watches</button>
         </div>
