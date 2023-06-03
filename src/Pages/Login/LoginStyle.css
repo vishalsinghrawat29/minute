@@ -1,0 +1,109 @@
+.login-page-container {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.6rem;
+}
+.login-heading {
+  font-size: 1rem;
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.login-body {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid var(--text-tertiary-color);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+.login-field-container {
+  padding: 0 0.25rem;
+}
+.login-field {
+  margin: 1rem 0;
+  position: relative;
+}
+.login-field label {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.login-field input {
+  display: block;
+  width: 100%;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--text-tertiary-color);
+  outline: none;
+}
+.login-field span {
+  font-size: 1.2rem;
+  line-height: 1;
+  position: absolute;
+  padding: 0.325rem;
+  top: 1.5rem;
+  right: 0;
+  background-color: var(--background-color);
+  border: 1px solid var(--text-tertiary-color);
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+}
+.loign-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 98%;
+  margin: 0 auto;
+}
+.loign-btn-container button {
+  display: block;
+  flex-basis: 44%;
+  margin: 0.25rem 0;
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.6rem 0;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+}
+.loign-btn-container button:last-of-type {
+  background-color: var(--text-tertiary-color);
+  color: var(--secondary-color);
+}
+.login-new-account {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  margin: 0.5rem;
+}
+@media (min-width: 768px) {
+  .login-heading {
+    font-size: 1.3rem;
+    margin: 5rem 0 1.5rem 0;
+  }
+  .login-body {
+    padding: 0.5rem;
+  }
+  .login-field-container {
+    padding: 0 1rem;
+  }
+
+  .loign-btn-container {
+    width: 94%;
+  }
+  .loign-btn-container button {
+    flex-basis: 48%;
+  }
+  .login-new-account {
+    margin: 1rem 0 0.5rem 0;
+  }
+}

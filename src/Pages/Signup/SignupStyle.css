@@ -1,0 +1,90 @@
+.signup-page-container {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.1rem;
+}
+.signupHeading {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1.5rem 0;
+}
+.signup-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border: 1px solid var(--text-tertiary-color);
+  border-radius: 0.5rem;
+}
+.signup-field {
+  margin: 1rem 0;
+  position: relative;
+}
+.signup-field label {
+  display: block;
+  width: 100%;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.signup-field input {
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--text-tertiary-color);
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+}
+.signup-field span {
+  position: absolute;
+  font-size: 1.2rem;
+  line-height: 0.8;
+  padding: 0.28rem;
+  top: 1.4rem;
+  right: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border: 1px solid var(--text-tertiary-color);
+  background-color: var(--background-color);
+}
+.signup-btn {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.6rem 0;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+}
+.signup-login-btn {
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0;
+  text-align: center;
+  color: vaR(--primary-color);
+}
+@media (min-width: 768px) {
+  .signup-page-container {
+    margin-top: 3.6rem;
+  }
+  .signupHeading {
+    font-size: 1.3rem;
+    padding: 2rem 0;
+  }
+  .signup-form-container {
+    border-radius: 1rem;
+  }
+  .signup-field {
+    margin: 1.2rem 0;
+  }
+  .signup-login-btn {
+    margin-top: 1.2rem;
+  }
+}

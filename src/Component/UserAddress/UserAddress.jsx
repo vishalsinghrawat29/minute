@@ -19,9 +19,10 @@ const UserAddress = () => {
   const [addressForm, setAddressForm] = useState(initialAddressForm);
 
   const addressArr = authState?.address;
+  console.log(authState);
   return (
     <div className="user-address-container">
-      {addressArr?.length === 0 ? (
+      {addressArr?.length === 0 || addressArr === null ? (
         <p>No Address added yet</p>
       ) : (
         addressArr?.map((address) => (

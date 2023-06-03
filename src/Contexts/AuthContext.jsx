@@ -46,6 +46,7 @@ export const AuthProivider = ({ children }) => {
               : "/"
           );
         } else {
+          console.log(resJson?.errors[0]);
           setErrorMessage(resJson?.errors[0]);
         }
       } catch (err) {
@@ -54,7 +55,7 @@ export const AuthProivider = ({ children }) => {
         setErrorMessage(err.message);
       }
     } else {
-      setErrorMessage("Please Enter Data!!");
+      setErrorMessage("Please Enter Input!!");
     }
   };
 
@@ -68,7 +69,6 @@ export const AuthProivider = ({ children }) => {
   };
 
   const userSignup = async (signupData) => {
-    console.log(signupData);
     try {
       const res = await fetch("/api/auth/signup", {
         method: "POST",
@@ -84,8 +84,9 @@ export const AuthProivider = ({ children }) => {
         });
         authDispatch({ type: "setToken", payload: resJson?.encodedToken });
         navigate("/");
+      } else if (res.status === 422) {
+        console.log(resJson.errors[0]);
       }
-      console.log(resJson);
     } catch (err) {
       console.log(err);
     }

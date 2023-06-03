@@ -13,7 +13,7 @@ nav {
   right: 3%;
   z-index: 20;
   background-color: white;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 nav button {
   border: none;
