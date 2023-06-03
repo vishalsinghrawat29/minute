@@ -4,9 +4,13 @@ import { AiOutlineClose } from "react-icons/ai";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { useContext } from "react";
 import "./CartPriceStyle.css";
+import { useNavigate } from "react-router-dom";
 const CartPrice = ({ setCouponModel }) => {
-  const { productState, couponValue, setCoupenValue } =
+  const { productState, couponValue, setCoupenValue, orderDispatch } =
     useContext(ProductContext);
+
+  const navigate = useNavigate();
+
   const totalQunatity = productState?.cart.reduce(
     (acc, { qty }) => acc + qty,
     0
@@ -22,6 +26,20 @@ const CartPrice = ({ setCouponModel }) => {
   const totalDiscount = discountPrice + couponPrice;
 
   const netPrice = totalPrice - discountPrice - couponPrice;
+
+  const checkoutHandler = () => {
+    orderDispatch({
+      type: "setPriceDetails",
+      payload: {
+        price: totalPrice,
+        discount: discountPrice,
+        coupon: couponValue,
+        totalAmt: netPrice,
+        totalDiscount: totalDiscount,
+      },
+    });
+    navigate("/checkout");
+  };
 
   return (
     <div className="cart-price-card">
@@ -81,7 +99,9 @@ const CartPrice = ({ setCouponModel }) => {
       <p className="discount-msg">
         You will save <span>₹ {totalDiscount.toFixed(2)}</span> on this order
       </p>
-      <button className="cart-price-checkout-btn">Checkout</button>
+      <button className="cart-price-checkout-btn" onClick={checkoutHandler}>
+        Checkout
+      </button>
     </div>
   );
 };

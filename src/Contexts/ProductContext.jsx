@@ -10,6 +10,7 @@ import { FiltersReducer } from "../Reducer/FiltersReducer.jsx";
 import { getCartProducts } from "../utils/cartUtils.jsx";
 import { AuthContext } from "./AuthContext.jsx";
 import { getWishlistProduct } from "../utils/wishlistUtils.jsx";
+import { OrderReducer } from "../Reducer/OrderReducer.jsx";
 
 export const ProductContext = createContext();
 
@@ -29,6 +30,17 @@ export const ProductProvider = ({ children }) => {
     sortByPriceFilter: "",
   };
 
+  const intialOrderState = {
+    orderAddress: {},
+    priceDetails: {
+      price: 0,
+      discount: 0,
+      coupon: 0,
+      totalAmt: 0,
+      totalDiscount: 0,
+    },
+  };
+
   const encodedToken = localStorage?.getItem("token");
   const { authState } = useContext(AuthContext);
 
@@ -42,6 +54,11 @@ export const ProductProvider = ({ children }) => {
     filtersInitialState
   );
   const [couponValue, setCoupenValue] = useState({ couponName: "", value: 0 });
+  const [isProfileTab, setIsProfileTab] = useState(true);
+  const [orderState, orderDispatch] = useReducer(
+    OrderReducer,
+    intialOrderState
+  );
 
   const getProducts = async () => {
     try {
@@ -175,6 +192,10 @@ export const ProductProvider = ({ children }) => {
         getSingleProductDetails,
         couponValue,
         setCoupenValue,
+        isProfileTab,
+        setIsProfileTab,
+        orderState,
+        orderDispatch,
       }}
     >
       {children}

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { UserProfile } from "../../Component/UserProfile/UserProfile";
 import { UserAddress } from "../../Component/UserAddress/UserAddress";
 import "./UserDetailsStyle.css";
+import { ProductContext } from "../../Contexts/ProductContext";
 
 const UserDetails = () => {
-  const [check, setChecked] = useState(true);
+  const { isProfileTab, setIsProfileTab } = useContext(ProductContext);
 
   return (
     <div className="user-details-page">
@@ -16,8 +17,8 @@ const UserDetails = () => {
               type="radio"
               name="tabs"
               id="profile"
-              checked={check}
-              onChange={() => setChecked(!check)}
+              checked={isProfileTab}
+              onChange={() => setIsProfileTab(!isProfileTab)}
             />
             <label htmlFor="profile">Profile</label>
           </div>
@@ -26,14 +27,14 @@ const UserDetails = () => {
               type="radio"
               name="tabs"
               id="address"
-              checked={!check}
-              onChange={() => setChecked(!check)}
+              checked={!isProfileTab}
+              onChange={() => setIsProfileTab(!isProfileTab)}
             />
             <label htmlFor="address">Address</label>
           </div>
         </div>
 
-        {check ? <UserProfile /> : <UserAddress />}
+        {isProfileTab ? <UserProfile /> : <UserAddress />}
       </div>
     </div>
   );

@@ -15,6 +15,8 @@ import { Navbar } from "./Component/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "./Contexts/AuthContext";
 import { Loader } from "./Component/Loader/Loader";
+import { Checkout } from "./Pages/Checkout/Checkout";
+import { OrderSummary } from "./Pages/OrderSummary/OrderSummary";
 
 function App() {
   const { loader } = useContext(AuthContext);
@@ -47,6 +49,22 @@ function App() {
           element={
             <RequiresAuth>
               <UserDetails />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/orderSummary"
+          element={
+            <RequiresAuth>
+              <OrderSummary />
             </RequiresAuth>
           }
         />

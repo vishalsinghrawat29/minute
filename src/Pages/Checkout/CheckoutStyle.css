@@ -1,0 +1,91 @@
+.checkout-page-container {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.1rem;
+}
+.place-order-message {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 6rem 0;
+  color: var(--secondary-color);
+  text-align: center;
+}
+.checkout-heading {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+}
+.empty-checkout {
+  text-align: center;
+}
+.empty-checkout h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--secondary-color);
+  margin: 0.5rem 0;
+}
+.empty-checkout button {
+  border: none;
+  background-color: var(--text-tertiary-color);
+  color: var(--secondary-color);
+  padding: 0.5rem 2.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin-top: 0.5rem;
+}
+.checkout-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.checkout-box > div {
+  padding: 0.25rem;
+}
+.checkout-box > div:first-of-type {
+  flex-basis: 100%;
+}
+.checkout-box > div:last-of-type {
+  flex-basis: 100%;
+}
+
+@media (min-width: 768px) {
+  .checkout-page-container {
+    margin-top: 3.6rem;
+  }
+  .place-order-message {
+    font-size: 1.5rem;
+  }
+  .checkout-heading {
+    font-size: 1.3rem;
+    margin-top: 5.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .empty-checkout h2 {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+  .empty-checkout button {
+    margin-top: 0;
+  }
+  .checkout-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .checkout-box > div {
+    padding: 1rem;
+  }
+  .checkout-box > div:first-of-type {
+    flex-basis: 55%;
+  }
+  .checkout-box > div:last-of-type {
+    flex-basis: 40%;
+  }
+}
