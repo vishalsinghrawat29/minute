@@ -16,7 +16,8 @@ import "./Navbar.css";
 import { AuthContext } from "../../Contexts/AuthContext";
 
 const Navbar = () => {
-  const { filtersDispatch, filtersState } = useContext(ProductContext);
+  const { filtersDispatch, filtersState, productState } =
+    useContext(ProductContext);
   const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
   const token = authState?.token;
@@ -29,6 +30,12 @@ const Navbar = () => {
       navigate("/products");
     }
   };
+
+  const cartItemQty = productState?.cart?.reduce(
+    (acc, { qty }) => acc + qty,
+    0
+  );
+  const wishlistItemQty = productState?.wishlist?.length;
 
   const toggleSearchBar = () => {
     setSearchBarVisible(!isSearchBarVisible);
@@ -68,10 +75,16 @@ const Navbar = () => {
 
         <NavLink to="/wishlist" className="nav-link nav-btn">
           <AiOutlineHeart className="nav-btn-icon" />
+          {wishlistItemQty !== 0 && (
+            <span className="nav-btn-qty wishlist-qty">{wishlistItemQty}</span>
+          )}
         </NavLink>
 
         <NavLink to="/cart" className="nav-link nav-btn">
           <AiOutlineShoppingCart className="nav-btn-icon" />
+          {cartItemQty !== 0 && (
+            <span className="nav-btn-qty">{cartItemQty}</span>
+          )}
         </NavLink>
 
         <NavLink
