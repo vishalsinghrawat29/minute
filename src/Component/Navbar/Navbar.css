@@ -67,9 +67,7 @@ nav button {
   padding: 3px;
   line-height: 1;
 }
-.nav-btn .wishlist-qty {
-  background-color: var(--primary-color);
-}
+
 .nav-btn:hover {
   background-color: var(--background-color);
   color: var(--tertiary-color);

@@ -76,7 +76,7 @@ const Navbar = () => {
         <NavLink to="/wishlist" className="nav-link nav-btn">
           <AiOutlineHeart className="nav-btn-icon" />
           {wishlistItemQty !== 0 && (
-            <span className="nav-btn-qty wishlist-qty">{wishlistItemQty}</span>
+            <span className="nav-btn-qty">{wishlistItemQty}</span>
           )}
         </NavLink>
 
