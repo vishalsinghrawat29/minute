@@ -68,7 +68,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
         clearCart(productDispatch, productState?.cart, encodedToken);
         productDispatch({ type: "setCartReset" });
         orderDispatch({ type: "setOrderReset" });
-        toast.success(`Payment of Rs. ${totalAmt} is Succesful !`);
+        toast.success(`Payment of Rs. ${totalAmt} Successful!`);
       },
       prefill: {
         name: `${firstName} ${lastName}`,
