@@ -60,7 +60,7 @@ const updateUserAddress = async (
     if (res.status === 200) {
       authDispatch({ type: "setAddress", payload: resJson?.address });
       setIsAddressForm(false);
-      toast.success("Address deleted!");
+      toast.success("Address Updated!");
     }
   } catch (err) {
     console.log(err);
