@@ -23,7 +23,6 @@ const CheckoutPrice = ({ setOrderPlace }) => {
     priceDetails: { price, discount, coupon, totalAmt },
   } = orderState;
   console.log(coupon);
-  const { mobile } = orderAddress;
   const { firstName, lastName, email } = localStorage.getItem("user");
   const navigate = useNavigate();
 
@@ -79,7 +78,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
       prefill: {
         name: `${firstName} ${lastName}`,
         email: `${email}`,
-        contact: `${mobile}`,
+        contact: `${orderState?.orderAddress?.mobile}`,
       },
       theme: {
         color: "#0f172a",

@@ -51,7 +51,6 @@
   font-weight: 400;
   line-height: 1;
   color: var(--secondary-color);
-  background-color: aqua;
 }
 @media (min-width: 768px) {
   .order-address-container {
