@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 const isProductInWishlist = (cart, id) => {
   return cart?.find((wishlistProduct) => wishlistProduct._id === id)
     ? true
@@ -33,6 +34,7 @@ const addProductToWishlist = async (
     const resJson = await res.json();
     if (res.status === 201) {
       productDispatch({ type: "setWishlist", payload: resJson?.wishlist });
+      toast.success("Item is added to Wishlist!");
     }
   } catch (err) {
     console.log(err);
@@ -56,6 +58,7 @@ const removeProductFromWishlist = async (
     const resJson = await res.json();
     if (res.status === 200) {
       productDispatch({ type: "setWishlist", payload: resJson?.wishlist });
+      toast.success("Item is removed from Wishlist!");
     }
   } catch (err) {
     console.log(err);

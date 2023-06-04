@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const isProductInCart = (cart, id) => {
   return cart?.find((cartProduct) => cartProduct._id === id) ? true : false;
 };
@@ -19,6 +21,7 @@ const addProductToCart = async (
     const resJson = await res.json();
     if (res.status === 201) {
       productDispatch({ type: "setCart", payload: resJson?.cart });
+      toast.success("Item is added to Cart!");
     }
   } catch (err) {
     console.log(err);
@@ -56,6 +59,7 @@ const handleProductQunatityInCart = async (
     const resJson = await res.json();
     if (res.status === 200) {
       productDispatch({ type: "setCart", payload: resJson?.cart });
+      toast.success(`Item Qty Update in cart!`);
     }
   } catch (err) {
     console.log(err);
@@ -78,6 +82,7 @@ const removeProductFromCart = async (
     const resJson = await res.json();
     if (res.status === 200) {
       productDispatch({ type: "setCart", payload: resJson?.cart });
+      toast.success("Item is removed from Cart!");
     }
   } catch (err) {
     console.log(err);

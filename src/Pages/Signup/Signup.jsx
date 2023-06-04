@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthContext";
 import "./SignupStyle.css";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const { userSignup } = useContext(AuthContext);
@@ -20,9 +21,9 @@ const Signup = () => {
   const signupDataHandler = (e) => {
     e.preventDefault();
     if (Object.values(userDetails).includes("")) {
-      alert("Enter Valid Data!!");
+      toast.error("Please enter valid input!");
     } else if (confirmPassword !== userDetails.password) {
-      alert("Password and Comfirm Password Not Matching!!");
+      toast.error("Password and Comfirm Password Not Matching!!");
     } else {
       userSignup(userDetails);
     }

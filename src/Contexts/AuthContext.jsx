@@ -1,5 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { AuthReducer } from "../Reducer/AuthReducer.jsx";
+import { toast } from "react-toastify";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -12,7 +13,6 @@ export const AuthProivider = ({ children }) => {
   };
 
   const [authState, authDispatch] = useReducer(AuthReducer, initialAuthState);
-  const [errorMessage, setErrorMessage] = useState("");
   const [loader, setLoader] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ export const AuthProivider = ({ children }) => {
             type: "setAddress",
             payload: resJson?.foundUser?.address,
           });
-
+          toast.success("Login Successfully!");
           navigate(
             location?.state?.from?.pathname
               ? location?.state?.from?.pathname
@@ -47,15 +47,15 @@ export const AuthProivider = ({ children }) => {
           );
         } else {
           console.log(resJson?.errors[0]);
-          setErrorMessage(resJson?.errors[0]);
+          toast.error(resJson?.errors[0]);
         }
       } catch (err) {
         userLogout();
         console.log(err.message);
-        setErrorMessage(err.message);
+        toast.error(err.message);
       }
     } else {
-      setErrorMessage("Please Enter Input!!");
+      toast.error("Please enter valid input!");
     }
   };
 
@@ -66,6 +66,7 @@ export const AuthProivider = ({ children }) => {
     authDispatch({ type: "setUser", payload: {} });
     authDispatch({ type: "setToken", payload: "" });
     authDispatch({ type: "setAddress", payload: [] });
+    toast.success("You're logged out!");
   };
 
   const userSignup = async (signupData) => {
@@ -83,12 +84,15 @@ export const AuthProivider = ({ children }) => {
           payload: JSON.stringify(resJson?.foundUser),
         });
         authDispatch({ type: "setToken", payload: resJson?.encodedToken });
+        toast.success("Signup Successful!");
         navigate("/");
       } else if (res.status === 422) {
         console.log(resJson.errors[0]);
+        toast.error(resJson.errors[0]);
       }
     } catch (err) {
       console.log(err);
+      toast.error(err.message);
     }
   };
 
@@ -125,7 +129,6 @@ export const AuthProivider = ({ children }) => {
         authDispatch,
         userLogged,
         userLogout,
-        errorMessage,
         userSignup,
         loader,
         setLoader,

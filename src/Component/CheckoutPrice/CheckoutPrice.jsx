@@ -5,18 +5,12 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { OrderAddress } from "../OrderAddress/OrderAddress";
 import "./CheckoutPriceStyle.css";
 import { clearCart } from "../../utils/cartUtils";
-import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
+import { toast } from "react-toastify";
 
 const CheckoutPrice = ({ setOrderPlace }) => {
-  const {
-    productState,
-    orderState,
-    setOrder,
-    setIsProfileTab,
-    orderDispatch,
-    productDispatch,
-  } = useContext(ProductContext);
+  const { productState, orderState, setOrder, orderDispatch, productDispatch } =
+    useContext(ProductContext);
   const { authState } = useContext(AuthContext);
   const {
     orderAddress,
@@ -24,7 +18,6 @@ const CheckoutPrice = ({ setOrderPlace }) => {
   } = orderState;
   console.log(coupon);
   const { firstName, lastName, email } = localStorage.getItem("user");
-  const navigate = useNavigate();
   const encodedToken = authState?.token;
 
   const loadScript = async (url) => {
@@ -49,7 +42,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
     );
 
     if (!res) {
-      alert("Razorpay SDK failed to load, check you connection");
+      toast.error("Razorpay SDK failed to load, check you connection");
       return;
     }
 
@@ -75,6 +68,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
         clearCart(productDispatch, productState?.cart, encodedToken);
         productDispatch({ type: "setCartReset" });
         orderDispatch({ type: "setOrderReset" });
+        toast.success(`Payment of Rs. ${totalAmt} is Succesful !`);
       },
       prefill: {
         name: `${firstName} ${lastName}`,
@@ -90,15 +84,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
   };
 
   const placeOrderHandler = () => {
-    if (authState?.address?.length === 0) {
-      alert("Please Add Address");
-      setTimeout(() => {
-        setIsProfileTab(false);
-        navigate("/userDetails");
-      }, 1500);
-    } else {
-      !orderAddress ? alert("Please Select Address") : displayRazorpay();
-    }
+    displayRazorpay();
   };
 
   return (

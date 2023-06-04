@@ -1,6 +1,8 @@
 import "./App.css";
 import Mockman from "mockman-js";
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Home } from "./Pages/Home/Home.jsx";
 import { Products } from "./Pages/Products/Products.jsx";
 import { Wishlist } from "./Pages/Wishlist/Wishlist.jsx";
@@ -72,6 +74,18 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const addUserAddress = async (
   address,
   encodedToken,
@@ -16,6 +18,7 @@ const addUserAddress = async (
     if (res.status === 201) {
       authDispatch({ type: "setAddress", payload: resJson?.address });
       setIsAddressForm(false);
+      toast.success("New address is added!");
     }
   } catch (err) {
     console.log(err);
@@ -31,6 +34,7 @@ const removeUserAddress = async (addressId, encodedToken, authDispatch) => {
     const resJson = await res.json();
     if (res.status === 200) {
       authDispatch({ type: "setAddress", payload: resJson?.address });
+      toast.success("Address removed!");
     }
   } catch (err) {
     console.log(err);
@@ -56,6 +60,7 @@ const updateUserAddress = async (
     if (res.status === 200) {
       authDispatch({ type: "setAddress", payload: resJson?.address });
       setIsAddressForm(false);
+      toast.success("Address deleted!");
     }
   } catch (err) {
     console.log(err);
