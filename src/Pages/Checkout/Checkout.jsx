@@ -4,17 +4,26 @@ import { OrderAddress } from "../../Component/OrderAddress/OrderAddress";
 import { CheckoutPrice } from "../../Component/CheckoutPrice/CheckoutPrice";
 import "./CheckoutStyle.css";
 import { useNavigate } from "react-router-dom";
+import { popper } from "../../utils/popper.jsx";
 
 const Checkout = () => {
   const [orderPlacedMsg, setOrderPlace] = useState(false);
   const navigate = useNavigate();
   const { productState } = useContext(ProductContext);
+  console.log(orderPlacedMsg);
+
+  const placedHandler = () => {
+    popper();
+    setTimeout(() => {
+      navigate("/orderSummary");
+    }, 1500);
+  };
 
   return (
     <div className="checkout-page-container">
       {orderPlacedMsg ? (
         <h1 className="place-order-message">
-          🥂 You order has successfully placed !
+          🥂 You order has successfully placed !{placedHandler()}
         </h1>
       ) : (
         <div className="checkout-container">

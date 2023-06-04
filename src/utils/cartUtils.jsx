@@ -80,10 +80,35 @@ const removeProductFromCart = async (
     setBtnDisabled(false);
   }
 };
+
+const clearCart = async (productDispatch, cart) => {
+  try {
+    for (const item of cart) {
+      try {
+        const encodedToken = localStorage.getItem("token");
+        const res = await fetch(`/api/user/cart/${item._id}`, {
+          method: "DELETE",
+          headers: { authorization: encodedToken },
+        });
+        const resJson = await res.json();
+        if (res.status === 200) {
+          productDispatch({ type: "setCart", payload: resJson?.cart });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    productDispatch({ type: "setCartReset" });
+  } catch (error) {
+    console.log("Error in clear cart", error);
+  }
+};
+
 export {
   isProductInCart,
   addProductToCart,
   getCartProducts,
   handleProductQunatityInCart,
   removeProductFromCart,
+  clearCart,
 };

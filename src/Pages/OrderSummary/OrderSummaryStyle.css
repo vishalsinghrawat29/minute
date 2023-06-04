@@ -1,0 +1,212 @@
+.order-summary-page {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.1rem;
+}
+.order-summary-heading {
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1.5rem 0;
+}
+.order-summary-box {
+  border: 1px solid var(--text-tertiary-color);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.order-summary-status {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--tertiary-color);
+}
+.order-summary-details {
+  margin: 1.5rem 0;
+}
+.order-summary-row {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.15rem 0;
+}
+.order-summary-row span:first-of-type {
+  font-weight: 600;
+}
+.order-summary-address {
+  padding: 0.15rem 0;
+}
+.order-summary-address > p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.order-summary-address > p > span {
+  font-weight: 600;
+}
+.order-summary-product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.order-summary-product {
+  border: 1px dashed var(--tertiary-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.order-summary-product-img {
+  flex-basis: 38%;
+}
+.order-summary-product-info {
+  flex-basis: 72%;
+}
+.order-summary-product-img img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  background-color: white;
+}
+.order-summary-product-info p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.1rem 0;
+  color: var(--text-secondary-color);
+}
+.order-summary-product-info p:first-of-type {
+  color: var(--secondary-color);
+}
+.order-summary-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  text-align: center;
+}
+.order-summary-empty h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-top: 8rem;
+}
+.order-summary-empty p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.order-summary-empty button {
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.6rem 3rem;
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 2rem;
+  margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .order-summary-page {
+    width: 94%;
+    margin: 0 auto;
+    margin-top: 3.6rem;
+  }
+  .order-summary-heading {
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1;
+    padding: 2rem 0;
+  }
+  .order-summary-box {
+    border: 1px solid var(--text-tertiary-color);
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .order-summary-status {
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--tertiary-color);
+  }
+  .order-summary-details {
+    margin: 1.5rem 0;
+  }
+  .order-summary-row {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.15rem 0;
+  }
+  .order-summary-row span:first-of-type {
+    font-weight: 600;
+  }
+  .order-summary-address {
+    padding: 0.15rem 0;
+  }
+  .order-summary-address > p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .order-summary-address > p > span {
+    font-weight: 600;
+  }
+  .order-summary-product-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  .order-summary-product {
+    border: 1px dashed var(--tertiary-color);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  .order-summary-product-img {
+    flex-basis: 15%;
+  }
+  .order-summary-product-info {
+    flex-basis: 85%;
+  }
+  .order-summary-product-img img {
+    display: block;
+    width: 100%;
+    background-color: white;
+  }
+  .order-summary-product-info p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.1rem 0;
+  }
+  .order-summary-empty h3 {
+    font-size: 3.5rem;
+    line-height: 1;
+    padding: 1rem 0;
+  }
+  .order-summary-empty p {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+  .order-summary-empty button {
+    padding: 0.75rem 3.5rem;
+    margin: 1.5rem 0;
+  }
+}

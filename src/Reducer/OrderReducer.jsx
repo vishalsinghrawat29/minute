@@ -1,3 +1,13 @@
+const intialOrderState = {
+  orderAddress: {},
+  priceDetails: {
+    price: 0,
+    discount: 0,
+    coupon: 0,
+    totalAmt: 0,
+    totalDiscount: 0,
+  },
+};
 const OrderReducer = (state, action) => {
   switch (action.type) {
     case "setOrderAddress":
@@ -18,8 +28,11 @@ const OrderReducer = (state, action) => {
         },
       };
 
+    case "setOrderReset":
+      return intialOrderState;
+
     default:
       return state;
   }
 };
-export { OrderReducer };
+export { intialOrderState, OrderReducer };

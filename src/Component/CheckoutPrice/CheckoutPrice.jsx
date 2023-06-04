@@ -4,15 +4,102 @@ import { CiDiscount1 } from "react-icons/ci";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { OrderAddress } from "../OrderAddress/OrderAddress";
 import "./CheckoutPriceStyle.css";
+import { clearCart } from "../../utils/cartUtils";
+import { useNavigate } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 
-const CheckoutPrice = () => {
-  const { productState, orderState } = useContext(ProductContext);
+const CheckoutPrice = ({ setOrderPlace }) => {
+  const {
+    productState,
+    orderState,
+    setOrder,
+    setIsProfileTab,
+    orderDispatch,
+    productDispatch,
+  } = useContext(ProductContext);
   const { authState } = useContext(AuthContext);
   const {
     orderAddress,
     priceDetails: { price, discount, coupon, totalAmt },
   } = orderState;
   console.log(coupon);
+  const { mobile } = orderAddress;
+  const { firstName, lastName, email } = localStorage.getItem("user");
+  const navigate = useNavigate();
+
+  const loadScript = async (url) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = url;
+
+      script.onload = () => {
+        resolve(true);
+      };
+
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+
+  const displayRazorpay = async () => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load, check you connection");
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_Uk5Nb4mrqd04Rm",
+      amount: totalAmt * 100,
+      currency: "INR",
+      name: "Minute",
+      description: "Thank you for shopping with us",
+      image:
+        "https://github.com/vishalsinghrawat29/minute/blob/master/src/Assets/minuteLogoDarkMode.png?raw=true",
+      handler: function (response) {
+        const orderData = {
+          _id: uuid(),
+          orderProducts: [...productState?.cart],
+          amount: totalAmt * 10000,
+          deliveryAddress: orderAddress,
+          paymentId: response.razorpay_payment_id,
+        };
+
+        setOrder({ ...orderData });
+        setOrderPlace(true);
+        clearCart(productDispatch, productState?.cart);
+        productDispatch({ type: "setCartReset" });
+        orderDispatch({ type: "setOrderReset" });
+      },
+      prefill: {
+        name: `${firstName} ${lastName}`,
+        email: `${email}`,
+        contact: `${mobile}`,
+      },
+      theme: {
+        color: "#0f172a",
+      },
+    };
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
+  const placeOrderHandler = () => {
+    if (authState?.address?.length === 0) {
+      alert("Please Add Address");
+      setTimeout(() => {
+        setIsProfileTab(false);
+        navigate("/userDetails");
+      }, 1500);
+    } else {
+      !orderAddress ? alert("Please Select Address") : displayRazorpay();
+    }
+  };
 
   return (
     <div className="checkout-price-container">
@@ -97,6 +184,7 @@ const CheckoutPrice = () => {
 
       <button
         className="checkout-price-btn"
+        onClick={() => placeOrderHandler()}
         disabled={
           authState?.address?.length === 0 || OrderAddress === undefined
         }
