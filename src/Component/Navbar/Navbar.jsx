@@ -16,7 +16,6 @@ import "./Navbar.css";
 import { AuthContext } from "../../Contexts/AuthContext";
 
 const Navbar = () => {
-  const { setLoader } = useContext(AuthContext);
   const { filtersDispatch, filtersState } = useContext(ProductContext);
   const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -26,8 +25,6 @@ const Navbar = () => {
   const handleSearch = (e) => {
     filtersDispatch({ type: "setClear", payload: "" });
     filtersDispatch({ type: "setSearch", payload: e.target.value });
-    setLoader(true);
-    setTimeout(() => setLoader(false), 500);
     if (filtersState?.search.length !== "") {
       navigate("/products");
     }

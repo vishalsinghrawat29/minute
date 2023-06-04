@@ -29,7 +29,7 @@ export const ProductProvider = ({ children }) => {
     ratingFilter: "",
     sortByPriceFilter: "",
   };
-  const { authState } = useContext(AuthContext);
+  const { authState, setLoader } = useContext(AuthContext);
 
   const encodedToken = authState?.token;
 
@@ -138,6 +138,7 @@ export const ProductProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    setLoader(true);
     const setCartAndWishlistProduct = async () => {
       try {
         const cartResponse = await getCartProducts(encodedToken);
@@ -166,7 +167,10 @@ export const ProductProvider = ({ children }) => {
     getCategories();
     !encodedToken && clearCartAndWishlist();
     encodedToken && setCartAndWishlistProduct();
-  }, [productDispatch, encodedToken]);
+    setTimeout(() => {
+      setLoader(false);
+    }, 500);
+  }, [productDispatch, encodedToken, setLoader]);
 
   return (
     <ProductContext.Provider

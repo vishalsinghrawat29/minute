@@ -17,12 +17,13 @@ import {
 import { AuthContext } from "../../Contexts/AuthContext";
 const ProductView = () => {
   const { productID } = useParams();
-  const { productState, productDispatch, isLoading, getSingleProductDetails } =
+  const { productState, productDispatch, getSingleProductDetails } =
     useContext(ProductContext);
-  const { authState } = useContext(AuthContext);
+  const { authState, setLoader } = useContext(AuthContext);
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
   const [singleProduct, setSingleProduct] = useState({});
+  const [isSingleProductLoading, setSingleProductLoading] = useState(true);
 
   useEffect(() => {
     const getSingleProduct = async () => {
@@ -31,10 +32,12 @@ const ProductView = () => {
         setSingleProduct(res?.product);
       } catch (err) {
         console.log(err);
+      } finally {
+        setSingleProductLoading(false);
       }
     };
     getSingleProduct();
-  }, [getSingleProductDetails, productID]);
+  }, [getSingleProductDetails, productID, setLoader]);
 
   const navigate = useNavigate();
   const isLogged = authState?.token?.length > 0;
@@ -73,10 +76,17 @@ const ProductView = () => {
       navigate("/login");
     }
   };
+  useEffect(() => {
+    if (isSingleProductLoading) {
+      setLoader(true);
+    } else {
+      setLoader(false);
+    }
+  }, [setLoader, isSingleProductLoading]);
   return (
     <>
-      {isLoading ? (
-        <p style={{ marginTop: "4rem" }}>Loading...</p>
+      {isSingleProductLoading ? (
+        ""
       ) : (
         <>
           {singleProduct ? (

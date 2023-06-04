@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductCard } from "../../Component/ProductCard/ProductCard";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { Sidebar } from "../../Component/Sidebar/Sidebar.jsx";
 import "./ProductsStyle.css";
 import { BsFilter } from "react-icons/bs";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const Products = () => {
   const {
@@ -13,11 +14,20 @@ const Products = () => {
     showFilters,
     toggleShowFilters,
   } = useContext(ProductContext);
+  const { setLoader } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (isLoading) {
+      setLoader(true);
+    } else {
+      setLoader(false);
+    }
+  }, [setLoader, isLoading]);
 
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        ""
       ) : (
         <div className="products-page">
           <aside
