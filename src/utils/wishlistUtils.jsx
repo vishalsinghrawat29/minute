@@ -20,10 +20,10 @@ const getWishlistProduct = async (encodedToken) => {
 const addProductToWishlist = async (
   item,
   productDispatch,
+  encodedToken,
   setWishlistBtnDisabled
 ) => {
   setWishlistBtnDisabled(true);
-  const encodedToken = localStorage.getItem("token");
   try {
     const res = await fetch("/api/user/wishlist", {
       method: "POST",
@@ -44,10 +44,10 @@ const addProductToWishlist = async (
 const removeProductFromWishlist = async (
   productDispatch,
   productId,
+  encodedToken,
   setWishlistBtnDisabled
 ) => {
   setWishlistBtnDisabled(true);
-  const encodedToken = localStorage.getItem("token");
   try {
     const res = await fetch(`/api/user/wishlist/${productId}`, {
       method: "DELETE",

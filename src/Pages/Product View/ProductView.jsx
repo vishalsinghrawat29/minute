@@ -14,10 +14,12 @@ import {
   addProductToWishlist,
   isProductInWishlist,
 } from "../../utils/wishlistUtils";
+import { AuthContext } from "../../Contexts/AuthContext";
 const ProductView = () => {
   const { productID } = useParams();
   const { productState, productDispatch, isLoading, getSingleProductDetails } =
     useContext(ProductContext);
+  const { authState } = useContext(AuthContext);
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
   const [singleProduct, setSingleProduct] = useState({});
@@ -35,14 +37,20 @@ const ProductView = () => {
   }, [getSingleProductDetails, productID]);
 
   const navigate = useNavigate();
-  const isLogged = localStorage.getItem("token")?.length > 0;
+  const isLogged = authState?.token?.length > 0;
+  const encodedToken = authState?.token;
 
   const addToCartHandler = (product) => {
     if (isLogged) {
       if (isProductInCart(productState?.cart, product?._id)) {
         navigate("/cart");
       } else {
-        addProductToCart(product, productDispatch, setCartBtnDisabled);
+        addProductToCart(
+          product,
+          productDispatch,
+          encodedToken,
+          setCartBtnDisabled
+        );
       }
     } else {
       navigate("/login");
@@ -54,7 +62,12 @@ const ProductView = () => {
       if (isProductInWishlist(productState?.wishlist, product?._id)) {
         navigate("/wishlist");
       } else {
-        addProductToWishlist(product, productDispatch, setWishlistBtnDisabled);
+        addProductToWishlist(
+          product,
+          productDispatch,
+          encodedToken,
+          setWishlistBtnDisabled
+        );
       }
     } else {
       navigate("/login");

@@ -2,9 +2,14 @@ const isProductInCart = (cart, id) => {
   return cart?.find((cartProduct) => cartProduct._id === id) ? true : false;
 };
 
-const addProductToCart = async (item, productDispatch, cartBtnDisabled) => {
+const addProductToCart = async (
+  item,
+  productDispatch,
+  encodedToken,
+  cartBtnDisabled
+) => {
   cartBtnDisabled(true);
-  const encodedToken = localStorage.getItem("token");
+
   try {
     const res = await fetch("/api/user/cart", {
       method: "POST",
@@ -38,11 +43,11 @@ const handleProductQunatityInCart = async (
   productDispatch,
   productId,
   type,
+  encodedToken,
   setBtnDisabled
 ) => {
   setBtnDisabled(true);
   try {
-    const encodedToken = localStorage.getItem("token");
     const res = await fetch(`/api/user/cart/${productId}`, {
       method: "POST",
       headers: { authorization: encodedToken },
@@ -61,11 +66,11 @@ const handleProductQunatityInCart = async (
 const removeProductFromCart = async (
   productDispatch,
   productId,
+  encodedToken,
   setBtnDisabled
 ) => {
   setBtnDisabled(true);
   try {
-    const encodedToken = localStorage.getItem("token");
     const res = await fetch(`/api/user/cart/${productId}`, {
       method: "DELETE",
       headers: { authorization: encodedToken },
@@ -81,11 +86,10 @@ const removeProductFromCart = async (
   }
 };
 
-const clearCart = async (productDispatch, cart) => {
+const clearCart = async (productDispatch, cart, encodedToken) => {
   try {
     for (const item of cart) {
       try {
-        const encodedToken = localStorage.getItem("token");
         const res = await fetch(`/api/user/cart/${item._id}`, {
           method: "DELETE",
           headers: { authorization: encodedToken },

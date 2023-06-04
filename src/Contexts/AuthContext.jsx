@@ -77,7 +77,7 @@ export const AuthProivider = ({ children }) => {
       const resJson = await res.json();
       if (res.status === 201) {
         localStorage.setItem("user", JSON.stringify(resJson?.createdUser));
-        localStorage.setItem("token", resJson?.encodedToken);
+        localStorage.setItem("signupToken", resJson?.encodedToken);
         authDispatch({
           type: "setUser",
           payload: JSON.stringify(resJson?.foundUser),
@@ -92,32 +92,31 @@ export const AuthProivider = ({ children }) => {
     }
   };
 
-  const getUserAddress = async () => {
-    const encodedToken = localStorage.getItem("token");
-    if (encodedToken?.length !== 0) {
-      try {
-        const res = await fetch("/api/user/address", {
-          headers: {
-            authorization: encodedToken,
-          },
-        });
-        const resJson = await res?.json();
-
-        if (res.status === 200) {
-          localStorage.setItem("address", JSON.stringify(resJson?.address));
-          authDispatch({ type: "setAddress", payload: resJson?.address });
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      console.log("user Not logged in");
-    }
-  };
-
   useEffect(() => {
+    const getUserAddress = async () => {
+      const encodedToken = authState?.token;
+      if (encodedToken?.length !== 0) {
+        try {
+          const res = await fetch("/api/user/address", {
+            headers: {
+              authorization: encodedToken,
+            },
+          });
+          const resJson = await res?.json();
+
+          if (res.status === 200) {
+            localStorage.setItem("address", JSON.stringify(resJson?.address));
+            authDispatch({ type: "setAddress", payload: resJson?.address });
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        console.log("user Not logged in");
+      }
+    };
     getUserAddress();
-  }, []);
+  }, [authState?.token]);
 
   return (
     <AuthContext.Provider

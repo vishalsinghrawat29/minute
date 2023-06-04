@@ -18,8 +18,9 @@ import { AuthContext } from "../../Contexts/AuthContext";
 const Navbar = () => {
   const { setLoader } = useContext(AuthContext);
   const { filtersDispatch, filtersState } = useContext(ProductContext);
+  const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const token = authState?.token;
   const [isSearchBarVisible, setSearchBarVisible] = useState(false);
 
   const handleSearch = (e) => {

@@ -10,13 +10,16 @@ import {
   addProductToWishlist,
   isProductInWishlist,
 } from "../../utils/wishlistUtils";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const CartCard = ({ product }) => {
   const { productState, productDispatch } = useContext(ProductContext);
+  const { authState } = useContext(AuthContext);
   const { _id, name, image, qty, price, id } = product;
 
   const navigate = useNavigate();
-  const isLogged = localStorage.getItem("token")?.length > 0;
+  const isLogged = authState?.token?.length > 0;
+  const encodedToken = authState?.token;
 
   const [isRmvFromCartBtnDisabled, setRmvFromCartBtnDisabled] = useState(false);
   const [isAddToWishlistBtnDisabled, setAddToWishlistBtnDisabled] =
@@ -32,6 +35,7 @@ const CartCard = ({ product }) => {
         addProductToWishlist(
           product,
           productDispatch,
+          encodedToken,
           setAddToWishlistBtnDisabled
         );
       }
@@ -62,6 +66,7 @@ const CartCard = ({ product }) => {
                   productDispatch,
                   _id,
                   "decrement",
+                  encodedToken,
                   setDecreaseQtyBtnDisabled
                 )
               }
@@ -77,6 +82,7 @@ const CartCard = ({ product }) => {
                   productDispatch,
                   _id,
                   "increment",
+                  encodedToken,
                   setIncreaseQtyBtnDisabled
                 )
               }
@@ -94,6 +100,7 @@ const CartCard = ({ product }) => {
                 removeProductFromCart(
                   productDispatch,
                   _id,
+                  encodedToken,
                   setRmvFromCartBtnDisabled
                 )
               }

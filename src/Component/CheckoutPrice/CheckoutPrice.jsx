@@ -25,6 +25,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
   console.log(coupon);
   const { firstName, lastName, email } = localStorage.getItem("user");
   const navigate = useNavigate();
+  const encodedToken = authState?.token;
 
   const loadScript = async (url) => {
     return new Promise((resolve) => {
@@ -71,7 +72,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
 
         setOrder({ ...orderData });
         setOrderPlace(true);
-        clearCart(productDispatch, productState?.cart);
+        clearCart(productDispatch, productState?.cart, encodedToken);
         productDispatch({ type: "setCartReset" });
         orderDispatch({ type: "setOrderReset" });
       },

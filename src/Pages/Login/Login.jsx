@@ -9,11 +9,11 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { userLogged } = useContext(AuthContext);
+  const { userLogged, authState } = useContext(AuthContext);
   const [isPasswordHide, setIsPasswordHide] = useState(true);
   const navigate = useNavigate();
 
-  const isToken = localStorage.getItem("token");
+  const isToken = authState?.token;
 
   const guestUserData = {
     email: "vishal@gmail.com",

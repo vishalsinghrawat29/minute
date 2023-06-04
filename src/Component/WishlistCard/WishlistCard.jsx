@@ -14,15 +14,18 @@ import {
 } from "../../utils/cartUtils";
 import { useNavigate } from "react-router-dom";
 import "./WishlistCardStyle.css";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const WishlistCard = ({ product }) => {
   const { productState, productDispatch } = useContext(ProductContext);
+  const { authState } = useContext(AuthContext);
 
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
   const navigate = useNavigate();
 
-  const isLogged = localStorage.getItem("token")?.length > 0;
+  const isLogged = authState?.token?.length > 0;
+  const encodedToken = authState?.token;
 
   const removeFromWishlistHandler = (product) => {
     if (isLogged) {
@@ -30,6 +33,7 @@ const WishlistCard = ({ product }) => {
         removeProductFromWishlist(
           productDispatch,
           product?._id,
+          encodedToken,
           setWishlistBtnDisabled
         );
       }
@@ -45,10 +49,16 @@ const WishlistCard = ({ product }) => {
           productDispatch,
           product?._id,
           "increment",
+          encodedToken,
           setCartBtnDisabled
         );
       } else {
-        addProductToCart(product, productDispatch, setCartBtnDisabled);
+        addProductToCart(
+          product,
+          productDispatch,
+          encodedToken,
+          setCartBtnDisabled
+        );
       }
     } else {
       navigate("/login");

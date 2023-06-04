@@ -10,20 +10,28 @@ import {
   isProductInWishlist,
   removeProductFromWishlist,
 } from "../../utils/wishlistUtils";
+import { AuthContext } from "../../Contexts/AuthContext";
 const ProductCard = ({ product }) => {
   const { productState, productDispatch } = useContext(ProductContext);
+  const { authState } = useContext(AuthContext);
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
 
   const navigate = useNavigate();
-  const isLogged = localStorage.getItem("token")?.length > 0;
+  const isLogged = authState?.token?.length > 0;
+  const encodedToken = authState?.token;
 
   const addToCartHandler = (product) => {
     if (isLogged) {
       if (isProductInCart(productState?.cart, product?._id)) {
         navigate("/cart");
       } else {
-        addProductToCart(product, productDispatch, setCartBtnDisabled);
+        addProductToCart(
+          product,
+          productDispatch,
+          encodedToken,
+          setCartBtnDisabled
+        );
       }
     } else {
       navigate("/login");
@@ -36,10 +44,16 @@ const ProductCard = ({ product }) => {
         removeProductFromWishlist(
           productDispatch,
           product?._id,
+          encodedToken,
           setWishlistBtnDisabled
         );
       } else {
-        addProductToWishlist(product, productDispatch, setWishlistBtnDisabled);
+        addProductToWishlist(
+          product,
+          productDispatch,
+          encodedToken,
+          setWishlistBtnDisabled
+        );
       }
     } else {
       navigate("/login");

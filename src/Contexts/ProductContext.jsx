@@ -29,9 +29,9 @@ export const ProductProvider = ({ children }) => {
     ratingFilter: "",
     sortByPriceFilter: "",
   };
-
-  const encodedToken = localStorage?.getItem("token");
   const { authState } = useContext(AuthContext);
+
+  const encodedToken = authState?.token;
 
   const [productState, productDispatch] = useReducer(
     ProductReducer,
@@ -164,9 +164,9 @@ export const ProductProvider = ({ children }) => {
 
     getProducts();
     getCategories();
-    !authState?.token && clearCartAndWishlist();
-    authState?.token && setCartAndWishlistProduct();
-  }, [productDispatch, authState?.token, encodedToken]);
+    !encodedToken && clearCartAndWishlist();
+    encodedToken && setCartAndWishlistProduct();
+  }, [productDispatch, encodedToken]);
 
   return (
     <ProductContext.Provider

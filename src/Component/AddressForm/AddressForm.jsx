@@ -9,8 +9,8 @@ const AddressForm = ({
   addressForm,
   initialAddressForm,
 }) => {
-  const { authDispatch } = useContext(AuthContext);
-  const encodedToken = localStorage.getItem("token");
+  const { authState, authDispatch } = useContext(AuthContext);
+  const encodedToken = authState?.token;
 
   const fillFormValue = (e) => {
     setAddressForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));

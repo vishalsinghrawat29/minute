@@ -4,8 +4,8 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import "./AddressCardStyle.css";
 const AddressCard = ({ address, setAddressForm, setIsAddressForm }) => {
   const { _id, name, street, city, state, country, zipCode, mobile } = address;
-  const { authDispatch } = useContext(AuthContext);
-  const encodedToken = localStorage.getItem("token");
+  const { authState, authDispatch } = useContext(AuthContext);
+  const encodedToken = authState?.token;
 
   const editAddress = (
     _id,
