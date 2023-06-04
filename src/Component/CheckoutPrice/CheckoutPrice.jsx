@@ -64,7 +64,7 @@ const CheckoutPrice = ({ setOrderPlace }) => {
         const orderData = {
           _id: uuid(),
           orderProducts: [...productState?.cart],
-          amount: totalAmt * 10000,
+          amount: totalAmt,
           deliveryAddress: orderAddress,
           paymentId: response.razorpay_payment_id,
         };

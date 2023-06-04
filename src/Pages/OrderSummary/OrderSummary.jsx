@@ -6,6 +6,7 @@ const OrderSummary = () => {
   const { order } = useContext(ProductContext);
   const { _id, orderProducts, amount, deliveryAddress, paymentId } = order;
   const navigate = useNavigate();
+  console.log("order summary", amount);
 
   return (
     <div className="order-summary-page">
