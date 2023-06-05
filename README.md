@@ -53,6 +53,10 @@ To install and run Minute on your local machine, follow these steps:
 - MockBee for backend
 - Razorpay Payment Gateway
 
+## DEMO
+
+https://github.com/vishalsinghrawat29/minute/assets/56162449/e1ee9ca3-59fa-422b-98ce-b6e921e8797e
+
 ## Contact
 
 If you have any suggestions, questions, or feedback, please feel free to contact me at vsrawat2906@gmail.com .
