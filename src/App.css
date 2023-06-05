@@ -14,18 +14,6 @@
   --text-secondary-color: #738296;
   --text-tertiary-color: #c8cdd6;
   --background-color: #f1f5f9;
-  --green-primary: #118668;
-  --green-secondary: #e7f3f0;
-  --green-tertiary-color: #e0ebe8;
-  --mobile-title: 2rem;
-  --mobile-subtitle: 1.5rem;
-  --mobile-paragraph: 1rem;
-  --tablet-title: 2.5rem;
-  --tablet-subtitle: 1.75rem;
-  --tablet-paragraph: 1.125rem;
-  --laptop-title: 3rem;
-  --laptop-subtitle: 2rem;
-  --laptop-paragraph: 1.25rem;
 }
 .App {
   font-family: "Poppins", sans-serif;
