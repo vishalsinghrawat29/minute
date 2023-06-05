@@ -79,20 +79,26 @@ const Home = () => {
           </div>
           <p className="footer-creator">
             Developed by{" "}
-            <a href="https://vishalsinghrawat.netlify.app/">
+            <a href="https://vishalsinghrawat.netlify.app/" target="_blank">
               Vishal Singh Rawat
             </a>{" "}
           </p>
           <div className="footer-url">
-            <a href="https://github.com/vishalsinghrawat29/minute">
+            <a
+              href="https://github.com/vishalsinghrawat29/minute"
+              target="_blank"
+            >
               <BsGithub />
             </a>
 
-            <a href="https://twitter.com/vsrawat2906">
+            <a href="https://twitter.com/vsrawat2906" target="_blank">
               <BsTwitter />
             </a>
 
-            <a href="https://www.linkedin.com/in/vishalsinghrawat/">
+            <a
+              href="https://www.linkedin.com/in/vishalsinghrawat/"
+              target="_blank"
+            >
               <BsLinkedin />
             </a>
           </div>
