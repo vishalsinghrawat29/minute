@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { OrderAddress } from "../../Component/OrderAddress/OrderAddress";
@@ -17,6 +17,10 @@ const Checkout = () => {
       navigate("/orderSummary");
     }, 1500);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="checkout-page-container">

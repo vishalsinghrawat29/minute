@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { WishlistCard } from "../../Component/WishlistCard/WishlistCard";
@@ -8,6 +8,9 @@ const Wishlist = () => {
   const { productState } = useContext(ProductContext);
   const { wishlist } = productState;
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

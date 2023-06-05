@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { CartCard } from "../../Component/CartCard/CartCard";
@@ -11,6 +11,10 @@ const Cart = () => {
   const { cart } = productState;
   const [couponModel, setCouponModel] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

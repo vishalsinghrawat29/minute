@@ -27,6 +27,7 @@ const ProductView = () => {
   const [isSingleProductLoading, setSingleProductLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getSingleProduct = async () => {
       try {
         const res = await getSingleProductDetails(productID);

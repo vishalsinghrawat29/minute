@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
 import "./OrderSummaryStyle.css";
@@ -7,6 +7,9 @@ const OrderSummary = () => {
   const { order } = useContext(ProductContext);
   const { _id, orderProducts, amount, deliveryAddress, paymentId } = order;
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="order-summary-page">

@@ -17,6 +17,7 @@ const Products = () => {
   const { setLoader } = useContext(AuthContext);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (isLoading) {
       setLoader(true);
     } else {

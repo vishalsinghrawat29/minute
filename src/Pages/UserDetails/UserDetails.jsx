@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { UserProfile } from "../../Component/UserProfile/UserProfile";
 import { UserAddress } from "../../Component/UserAddress/UserAddress";
@@ -6,6 +6,9 @@ import "./UserDetailsStyle.css";
 
 const UserDetails = () => {
   const { isProfileTab, setIsProfileTab } = useContext(ProductContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="user-details-page">

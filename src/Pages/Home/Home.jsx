@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BsArrowRight, BsTwitter, BsLinkedin, BsGithub } from "react-icons/bs";
 import headerWatch from "../../Assets/header-watch.jpg";
 import { ProductContext } from "../../Contexts/ProductContext";
@@ -8,6 +8,10 @@ import "./HomeStyle.css";
 const Home = () => {
   const { productState, filtersDispatch } = useContext(ProductContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
