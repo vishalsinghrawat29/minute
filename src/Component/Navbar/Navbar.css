@@ -86,10 +86,8 @@ nav button {
 /* search-container */
 .search-container {
   display: none;
-
   width: 100%;
   background-color: white;
-  padding: 0.3rem 0;
 }
 .search-visible {
   display: flex;
@@ -100,6 +98,7 @@ nav button {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 5;
 }
 .search-icon {
   position: absolute;
