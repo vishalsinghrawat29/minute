@@ -69,7 +69,7 @@ const WishlistCard = ({ product }) => {
       <div key={product._id} className="wishlist-product-card ">
         <div
           className="wishlist-product-img"
-          onClick={() => navigate(`/products/${product.id}`)}
+          onClick={() => navigate(`/products/${product._id}`)}
         >
           {product?.isBestSeller && (
             <p className="wishlist-product-best-seller">Best Seller</p>

@@ -49,7 +49,7 @@ const CartCard = ({ product }) => {
       <div className="cart-card">
         <div
           className="card-product-img"
-          onClick={() => navigate(`/products/${id}`)}
+          onClick={() => navigate(`/products/${_id}`)}
         >
           <img src={image} alt={name} />
         </div>
