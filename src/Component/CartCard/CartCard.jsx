@@ -15,7 +15,7 @@ import "./CartCardStyle.css";
 const CartCard = ({ product }) => {
   const { productState, productDispatch } = useContext(ProductContext);
   const { authState } = useContext(AuthContext);
-  const { _id, name, image, qty, price, id } = product;
+  const { _id, name, image, qty, price } = product;
 
   const navigate = useNavigate();
   const isLogged = authState?.token?.length > 0;
