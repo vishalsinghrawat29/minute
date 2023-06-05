@@ -1,16 +1,17 @@
 import { useContext, useState } from "react";
-import "./ProductCardStyle.css";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineHeart, AiFillStar, AiFillHeart } from "react-icons/ai";
 import { BiCartAdd, BiCartDownload } from "react-icons/bi";
 import { ProductContext } from "../../Contexts/ProductContext";
+import { AuthContext } from "../../Contexts/AuthContext";
 import { addProductToCart, isProductInCart } from "../../utils/cartUtils.jsx";
-import { useNavigate } from "react-router-dom";
 import {
   addProductToWishlist,
   isProductInWishlist,
   removeProductFromWishlist,
 } from "../../utils/wishlistUtils";
-import { AuthContext } from "../../Contexts/AuthContext";
+import "./ProductCardStyle.css";
+
 const ProductCard = ({ product }) => {
   const { productState, productDispatch } = useContext(ProductContext);
   const { authState } = useContext(AuthContext);
@@ -59,6 +60,7 @@ const ProductCard = ({ product }) => {
       navigate("/login");
     }
   };
+
   return (
     <>
       <div className="product-card">

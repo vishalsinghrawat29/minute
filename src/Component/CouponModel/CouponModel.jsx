@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { AiOutlineClose } from "react-icons/ai";
 import "./CouponModelStyle.css";
+
 const CoupensData = [
   { couponName: "TIME99", value: 99 },
   { couponName: "WATCHSALE", value: 120 },
 ];
+
 const CouponModel = ({ setCouponModel }) => {
   const { couponValue, setCoupenValue } = useContext(ProductContext);
   const [couponInput, setCoupenInput] = useState(couponValue);

@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import { ProductContext } from "../../Contexts/ProductContext";
-
+import { useNavigate } from "react-router-dom";
 import { AiFillStar, AiFillHeart } from "react-icons/ai";
 import { BiCartAdd } from "react-icons/bi";
+import { ProductContext } from "../../Contexts/ProductContext";
+import { AuthContext } from "../../Contexts/AuthContext";
 import {
   isProductInWishlist,
   removeProductFromWishlist,
@@ -12,9 +13,7 @@ import {
   isProductInCart,
   handleProductQunatityInCart,
 } from "../../utils/cartUtils";
-import { useNavigate } from "react-router-dom";
 import "./WishlistCardStyle.css";
-import { AuthContext } from "../../Contexts/AuthContext";
 
 const WishlistCard = ({ product }) => {
   const { productState, productDispatch } = useContext(ProductContext);
@@ -64,6 +63,7 @@ const WishlistCard = ({ product }) => {
       navigate("/login");
     }
   };
+
   return (
     <>
       <div key={product._id} className="wishlist-product-card ">

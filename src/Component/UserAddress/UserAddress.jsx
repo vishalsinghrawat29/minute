@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { AddressCard } from "../AddressCard/AddressCard";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { AddressCard } from "../AddressCard/AddressCard";
 import { AddressForm } from "../AddressForm/AddressForm";
 import "./UserAddressStyle.css";
 
@@ -17,9 +17,8 @@ const UserAddress = () => {
     mobile: "",
   };
   const [addressForm, setAddressForm] = useState(initialAddressForm);
-
   const addressArr = authState?.address;
-  console.log(authState);
+
   return (
     <div className="user-address-container">
       {addressArr?.length === 0 || addressArr === null ? (

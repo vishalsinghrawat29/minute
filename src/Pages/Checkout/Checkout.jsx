@@ -1,16 +1,15 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
 import { OrderAddress } from "../../Component/OrderAddress/OrderAddress";
 import { CheckoutPrice } from "../../Component/CheckoutPrice/CheckoutPrice";
-import "./CheckoutStyle.css";
-import { useNavigate } from "react-router-dom";
 import { popper } from "../../utils/popper.jsx";
+import "./CheckoutStyle.css";
 
 const Checkout = () => {
   const [orderPlacedMsg, setOrderPlace] = useState(false);
   const navigate = useNavigate();
   const { productState } = useContext(ProductContext);
-  console.log(orderPlacedMsg);
 
   const placedHandler = () => {
     popper();

@@ -1,17 +1,17 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
-
 import { CartCard } from "../../Component/CartCard/CartCard";
 import { CartPrice } from "../../Component/CartPrice/CartPrice";
 import { CouponModel } from "../../Component/CouponModel/CouponModel";
 import "./CartStyle.css";
-import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { productState } = useContext(ProductContext);
   const { cart } = productState;
   const [couponModel, setCouponModel] = useState(false);
   const navigate = useNavigate();
+
   return (
     <>
       {productState?.cart?.length === 0 ? (

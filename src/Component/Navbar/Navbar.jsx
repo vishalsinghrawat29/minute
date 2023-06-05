@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
@@ -8,12 +9,10 @@ import {
 import { MdOutlineLogin } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
-import { NavLink, useNavigate } from "react-router-dom";
-
 import minuteLogo from "../../Assets/minuteLogoLightMode.png";
 import { ProductContext } from "../../Contexts/ProductContext";
-import "./Navbar.css";
 import { AuthContext } from "../../Contexts/AuthContext";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { filtersDispatch, filtersState, productState } =

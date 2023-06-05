@@ -1,8 +1,8 @@
 import { useContext } from "react";
+import { ProductContext } from "../../Contexts/ProductContext";
 import { UserProfile } from "../../Component/UserProfile/UserProfile";
 import { UserAddress } from "../../Component/UserAddress/UserAddress";
 import "./UserDetailsStyle.css";
-import { ProductContext } from "../../Contexts/ProductContext";
 
 const UserDetails = () => {
   const { isProfileTab, setIsProfileTab } = useContext(ProductContext);

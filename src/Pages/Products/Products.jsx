@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
-import { ProductCard } from "../../Component/ProductCard/ProductCard";
+import { BsFilter } from "react-icons/bs";
 import { ProductContext } from "../../Contexts/ProductContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { ProductCard } from "../../Component/ProductCard/ProductCard";
 import { Sidebar } from "../../Component/Sidebar/Sidebar.jsx";
 import "./ProductsStyle.css";
-import { BsFilter } from "react-icons/bs";
-import { AuthContext } from "../../Contexts/AuthContext";
 
 const Products = () => {
   const {

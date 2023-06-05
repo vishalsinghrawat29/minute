@@ -1,9 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import headerWatch from "../../Assets/header-watch.jpg";
-import "./HomeStyle.css";
 import { useContext } from "react";
-import { ProductContext } from "../../Contexts/ProductContext";
 import { BsArrowRight, BsTwitter, BsLinkedin, BsGithub } from "react-icons/bs";
+import headerWatch from "../../Assets/header-watch.jpg";
+import { ProductContext } from "../../Contexts/ProductContext";
+import "./HomeStyle.css";
 
 const Home = () => {
   const { productState, filtersDispatch } = useContext(ProductContext);
@@ -35,7 +35,6 @@ const Home = () => {
           <h1>Category</h1>
           <p>Discover more. Good things are waiting for you</p>
         </div>
-
         <div className="category-container">
           {productState.categories.map(
             ({ _id, image, categoryName, description }) => (

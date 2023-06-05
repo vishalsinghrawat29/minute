@@ -1,12 +1,12 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
 import "./OrderSummaryStyle.css";
-import { useNavigate } from "react-router-dom";
+
 const OrderSummary = () => {
   const { order } = useContext(ProductContext);
   const { _id, orderProducts, amount, deliveryAddress, paymentId } = order;
   const navigate = useNavigate();
-  console.log("order summary", amount);
 
   return (
     <div className="order-summary-page">

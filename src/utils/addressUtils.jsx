@@ -56,7 +56,6 @@ const updateUserAddress = async (
       body: JSON.stringify({ address }),
     });
     const resJson = await res.json();
-    console.log(resJson);
     if (res.status === 200) {
       authDispatch({ type: "setAddress", payload: resJson?.address });
       setIsAddressForm(false);

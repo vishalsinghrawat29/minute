@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ProductContext } from "../../Contexts/ProductContext";
-import "./ProductViewStyle.css";
 import {
   AiFillStar,
   AiFillHeart,
@@ -9,12 +7,15 @@ import {
   AiOutlineTag,
 } from "react-icons/ai";
 import { BiCartAdd, BiCartDownload } from "react-icons/bi";
+import { ProductContext } from "../../Contexts/ProductContext";
+import { AuthContext } from "../../Contexts/AuthContext";
 import { addProductToCart, isProductInCart } from "../../utils/cartUtils.jsx";
 import {
   addProductToWishlist,
   isProductInWishlist,
 } from "../../utils/wishlistUtils";
-import { AuthContext } from "../../Contexts/AuthContext";
+import "./ProductViewStyle.css";
+
 const ProductView = () => {
   const { productID } = useParams();
   const { productState, productDispatch, getSingleProductDetails } =
@@ -76,6 +77,7 @@ const ProductView = () => {
       navigate("/login");
     }
   };
+
   useEffect(() => {
     if (isSingleProductLoading) {
       setLoader(true);
@@ -83,6 +85,7 @@ const ProductView = () => {
       setLoader(false);
     }
   }, [setLoader, isSingleProductLoading]);
+
   return (
     <>
       {isSingleProductLoading ? (

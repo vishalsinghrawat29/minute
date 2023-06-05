@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import "./SidebarStyle.css";
-import { ProductContext } from "../../Contexts/ProductContext.jsx";
 import { AiFillStar, AiOutlineClose } from "react-icons/ai";
+import { ProductContext } from "../../Contexts/ProductContext.jsx";
+
 const Sidebar = () => {
   const { productState, filtersState, filtersDispatch, toggleShowFilters } =
     useContext(ProductContext);
@@ -11,6 +12,7 @@ const Sidebar = () => {
     { label: "Low To High", value: "asc" },
     { label: "Reset", value: "reset" },
   ];
+
   return (
     <div className="filters-container">
       <div className="filters-head">

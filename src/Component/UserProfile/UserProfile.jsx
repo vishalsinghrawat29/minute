@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import "./UserProfileStyle.css";
+
 const UserProfile = () => {
   const { userLogout } = useContext(AuthContext);
   const { firstName, lastName, email } = JSON.parse(

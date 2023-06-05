@@ -1,7 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { AuthReducer } from "../Reducer/AuthReducer.jsx";
 import { toast } from "react-toastify";
-
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();

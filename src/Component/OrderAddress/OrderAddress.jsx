@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
+import { AuthContext } from "../../Contexts/AuthContext";
 import "./OrderAddressStyle.css";
+
 const OrderAddress = () => {
   const { authState } = useContext(AuthContext);
   const { setIsProfileTab, orderDispatch, orderState } =
@@ -11,7 +12,6 @@ const OrderAddress = () => {
   const [selectedAddress, setSelectedAddress] = useState(
     authState?.address?.[0]
   );
-  console.log(orderState);
 
   useEffect(() => {
     orderDispatch({ type: "setOrderAddress", payload: selectedAddress });

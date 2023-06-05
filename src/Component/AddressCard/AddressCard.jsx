@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { removeUserAddress } from "../../utils/addressUtils";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { removeUserAddress } from "../../utils/addressUtils";
 import "./AddressCardStyle.css";
+
 const AddressCard = ({ address, setAddressForm, setIsAddressForm }) => {
   const { _id, name, street, city, state, country, zipCode, mobile } = address;
   const { authState, authDispatch } = useContext(AuthContext);

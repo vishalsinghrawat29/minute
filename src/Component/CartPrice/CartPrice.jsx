@@ -1,10 +1,11 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { ProductContext } from "../../Contexts/ProductContext";
 import { MdOutlineDiscount } from "react-icons/md";
 import { CiDiscount1 } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
-import { ProductContext } from "../../Contexts/ProductContext";
-import { useContext } from "react";
 import "./CartPriceStyle.css";
-import { useNavigate } from "react-router-dom";
+
 const CartPrice = ({ setCouponModel }) => {
   const { productState, couponValue, setCoupenValue, orderDispatch } =
     useContext(ProductContext);

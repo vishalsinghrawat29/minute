@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { AuthContext } from "../../Contexts/AuthContext";
 import "./SignupStyle.css";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { toast } from "react-toastify";
 
 const Signup = () => {
   const { userSignup } = useContext(AuthContext);

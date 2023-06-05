@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { ProductContext } from "../../Contexts/ProductContext";
-import { CiDiscount1 } from "react-icons/ci";
-import { AuthContext } from "../../Contexts/AuthContext";
-import { OrderAddress } from "../OrderAddress/OrderAddress";
-import "./CheckoutPriceStyle.css";
-import { clearCart } from "../../utils/cartUtils";
 import { v4 as uuid } from "uuid";
 import { toast } from "react-toastify";
+import { CiDiscount1 } from "react-icons/ci";
+import { ProductContext } from "../../Contexts/ProductContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { OrderAddress } from "../OrderAddress/OrderAddress";
+import { clearCart } from "../../utils/cartUtils";
+import "./CheckoutPriceStyle.css";
 
 const CheckoutPrice = ({ setOrderPlace }) => {
   const { productState, orderState, setOrder, orderDispatch, productDispatch } =
@@ -16,7 +16,6 @@ const CheckoutPrice = ({ setOrderPlace }) => {
     orderAddress,
     priceDetails: { price, discount, coupon, totalAmt },
   } = orderState;
-  console.log(coupon);
   const { firstName, lastName, email } = localStorage.getItem("user");
   const encodedToken = authState?.token;
 

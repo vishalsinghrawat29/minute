@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../index.js";
 import { useNavigate } from "react-router-dom";
-import "./LoginStyle.css";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import "./LoginStyle.css";
 
 const Login = () => {
   const [userData, setUserData] = useState({

@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../Contexts/ProductContext";
-import "./CartCardStyle.css";
+import { AuthContext } from "../../Contexts/AuthContext";
 import {
   handleProductQunatityInCart,
   removeProductFromCart,
 } from "../../utils/cartUtils";
-import { useNavigate } from "react-router-dom";
 import {
   addProductToWishlist,
   isProductInWishlist,
 } from "../../utils/wishlistUtils";
-import { AuthContext } from "../../Contexts/AuthContext";
+import "./CartCardStyle.css";
 
 const CartCard = ({ product }) => {
   const { productState, productDispatch } = useContext(ProductContext);
