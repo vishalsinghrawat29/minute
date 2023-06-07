@@ -27,6 +27,7 @@
   line-height: 1;
 }
 .coupon-model-head button {
+  cursor: pointer;
   border: none;
   background-color: transparent;
   display: flex;
@@ -52,6 +53,7 @@
   opacity: 0.9;
 }
 .coupon-submit-btn button {
+  cursor: pointer;
   width: 100%;
   border: none;
   background-color: var(--secondary-color);

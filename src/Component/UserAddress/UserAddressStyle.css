@@ -2,6 +2,7 @@
   padding: 0.5rem;
 }
 .user-address-add-btn {
+  cursor: pointer;
   border: none;
   background-color: var(--secondary-color);
   color: white;

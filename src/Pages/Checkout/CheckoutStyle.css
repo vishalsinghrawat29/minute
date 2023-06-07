@@ -28,6 +28,7 @@
   margin: 0.5rem 0;
 }
 .empty-checkout button {
+  cursor: pointer;
   border: none;
   background-color: var(--text-tertiary-color);
   color: var(--secondary-color);

@@ -52,6 +52,7 @@
   border: 1px dashed var(--tertiary-color);
 }
 .cart-product-qunatity button {
+  cursor: pointer;
   border: none;
   font-size: 0.8rem;
   line-height: 1;
@@ -70,6 +71,7 @@
   justify-content: space-between;
 }
 .cart-product-btn-container button {
+  cursor: pointer;
   border: none;
   font-size: 0.8rem;
   line-height: 1;

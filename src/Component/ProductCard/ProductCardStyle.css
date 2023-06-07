@@ -22,6 +22,7 @@
   align-items: center;
 }
 .product-card-top button {
+  cursor: pointer;
   border: none;
   background-color: transparent;
   font-size: 1.4rem;
@@ -87,6 +88,7 @@
   color: #64748b;
 }
 .product-cart-btn {
+  cursor: pointer;
   width: 100%;
   border: none;
   background-color: var(--secondary-color);

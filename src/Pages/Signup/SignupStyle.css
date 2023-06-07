@@ -52,6 +52,7 @@
   background-color: var(--background-color);
 }
 .signup-btn {
+  cursor: pointer;
   width: 100%;
   margin: 0 auto;
   padding: 0.6rem 0;
@@ -62,6 +63,7 @@
   color: white;
 }
 .signup-login-btn {
+  cursor: pointer;
   cursor: pointer;
   font-size: 0.9rem;
   line-height: 1;

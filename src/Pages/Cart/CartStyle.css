@@ -17,6 +17,7 @@
   color: #64748b;
 }
 .empty-cart button {
+  cursor: pointer;
   border: none;
   background: transparent;
   font-size: 0.8rem;

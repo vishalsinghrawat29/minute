@@ -64,6 +64,7 @@
   margin: 0 auto;
 }
 .loign-btn-container button {
+  cursor: pointer;
   display: block;
   flex-basis: 44%;
   margin: 0.25rem 0;

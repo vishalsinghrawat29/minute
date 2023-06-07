@@ -104,6 +104,7 @@
   line-height: 1.5;
 }
 .order-summary-empty button {
+  cursor: pointer;
   font-size: 0.9rem;
   line-height: 1;
   padding: 0.6rem 3rem;

@@ -66,6 +66,7 @@
 }
 
 .wishlist-product-remove-btn {
+  cursor: pointer;
   width: 100%;
   border: none;
   background-color: var(--background-color);
@@ -88,6 +89,7 @@
   font-size: 1.2rem;
 }
 .wishlist-product-cart-btn {
+  cursor: pointer;
   width: 100%;
   border: none;
   background-color: var(--secondary-color);

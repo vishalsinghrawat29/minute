@@ -65,6 +65,7 @@
   margin-right: 0.25rem;
 }
 .checkout-price-btn {
+  cursor: pointer;
   font-size: 0.9rem;
   line-height: 1;
   border: none;

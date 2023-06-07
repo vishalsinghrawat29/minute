@@ -17,6 +17,7 @@
   font-weight: 600;
 }
 .user-profile-body button {
+  cursor: pointer;
   border: none;
   background-color: var(--primary-color);
   padding: 0.5rem 3rem;

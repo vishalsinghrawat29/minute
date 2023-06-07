@@ -39,6 +39,7 @@ header {
   font-weight: 300;
 }
 .header-body button {
+  cursor: pointer;
   border: none;
   background-color: white;
   margin: 1rem 0;
@@ -107,6 +108,7 @@ header {
   padding: 0.25rem 0;
 }
 .category-body button {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   color: var(--secondary-color);

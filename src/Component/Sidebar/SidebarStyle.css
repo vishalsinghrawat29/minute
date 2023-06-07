@@ -16,6 +16,7 @@
   flex-basis: 50%;
 }
 .filters-head button {
+  cursor: pointer;
   flex: 1;
   border: none;
   color: var(--secondary-color);

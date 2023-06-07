@@ -37,6 +37,7 @@
   color: var(--secondary-color);
 }
 .order-adress-btn {
+  cursor: pointer;
   font-size: 0.9rem;
   line-height: 1;
   border: none;
