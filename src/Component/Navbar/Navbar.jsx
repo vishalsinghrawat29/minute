@@ -59,6 +59,7 @@ const Navbar = () => {
         <CiSearch className="search-icon" />
         <input
           type="text"
+          value={filtersState.search}
           placeholder="Search for watches..."
           onChange={handleSearch}
         />
